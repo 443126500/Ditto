@@ -140,14 +140,18 @@ void CDeleteClipData::InitListCtrlCols()
 	int idWidth = 48;
 	int dateWidth = 180;
 	int usageWidth = 80;
+	int formatWidth = 80;
+	int dataSizeWidth = 80;
 
 	CDC* pDC = m_clipList.GetDC();
 	if (pDC != NULL)
 	{
 		CFont* pOldFont = pDC->SelectObject(m_clipList.GetFont());
-		idWidth = pDC->GetTextExtent(_T("00000")).cx + 16;
+		idWidth = pDC->GetTextExtent(theApp.m_Language.GetDeleteClipDataString("ID", "ID")).cx + 24;
 		dateWidth = pDC->GetTextExtent(COleDateTime::GetCurrentTime().Format()).cx + 24;
 		usageWidth = pDC->GetTextExtent(theApp.m_Language.GetDeleteClipDataString("UsageCount", "Usage Count")).cx + 24;
+		formatWidth = pDC->GetTextExtent(theApp.m_Language.GetDeleteClipDataString("Format", "Format")).cx + 24;
+		dataSizeWidth = pDC->GetTextExtent(theApp.m_Language.GetDeleteClipDataString("DataSize", "Data Size")).cx + 24;
 		pDC->SelectObject(pOldFont);
 		m_clipList.ReleaseDC(pDC);
 	}
@@ -158,8 +162,47 @@ void CDeleteClipData::InitListCtrlCols()
 	m_clipList.InsertColumn(3, theApp.m_Language.GetDeleteClipDataString("UsageCount", "Usage Count"), LVCFMT_RIGHT, usageWidth);
 	m_clipList.InsertColumn(4, theApp.m_Language.GetDeleteClipDataString("Created", "Created"), LVCFMT_LEFT, dateWidth);
 	m_clipList.InsertColumn(5, theApp.m_Language.GetDeleteClipDataString("LastUsed", "Last Used"), LVCFMT_LEFT, dateWidth);
-	m_clipList.InsertColumn(6, theApp.m_Language.GetDeleteClipDataString("Format", "Format"), LVCFMT_LEFT, 150);
-	m_clipList.InsertColumn(7, theApp.m_Language.GetDeleteClipDataString("DataSize", "Data Size"), LVCFMT_LEFT, 100);
+	m_clipList.InsertColumn(6, theApp.m_Language.GetDeleteClipDataString("Format", "Format"), LVCFMT_LEFT, formatWidth);
+	m_clipList.InsertColumn(7, theApp.m_Language.GetDeleteClipDataString("DataSize", "Data Size"), LVCFMT_LEFT, dataSizeWidth);
+}
+
+void CDeleteClipData::AutosizeContentColumns()
+{
+	CDC* pDC = m_clipList.GetDC();
+	if (pDC == NULL)
+		return;
+
+	CFont* pOldFont = pDC->SelectObject(m_clipList.GetFont());
+
+	auto measure = [pDC](const CString& text) -> int
+	{
+		return pDC->GetTextExtent(text).cx;
+	};
+
+	int idWidth = measure(theApp.m_Language.GetDeleteClipDataString("ID", "ID"));
+	int formatWidth = measure(theApp.m_Language.GetDeleteClipDataString("Format", "Format"));
+	int dataSizeWidth = measure(theApp.m_Language.GetDeleteClipDataString("DataSize", "Data Size"));
+
+	const int maxFileSizeBuffer = 255;
+	TCHAR szFileSize[255];
+	const size_t count = m_data.size();
+	for (size_t i = 0; i < count; i++)
+	{
+		const CDeleteData& item = m_data[i];
+		idWidth = max(idWidth, measure(StrF(_T("%d"), item.m_lID)));
+		formatWidth = max(formatWidth, measure(item.m_clipboardFormat));
+
+		StrFormatByteSize(item.m_dataSize, szFileSize, maxFileSizeBuffer);
+		dataSizeWidth = max(dataSizeWidth, measure(szFileSize));
+	}
+
+	const int pad = 24;
+	m_clipList.SetColumnWidth(0, min(max(idWidth + pad, 40), 120));
+	m_clipList.SetColumnWidth(6, min(max(formatWidth + pad, 60), 360));
+	m_clipList.SetColumnWidth(7, min(max(dataSizeWidth + pad, 60), 160));
+
+	pDC->SelectObject(pOldFont);
+	m_clipList.ReleaseDC(pDC);
 }
 
 void CDeleteClipData::LoadItems()
@@ -207,6 +250,7 @@ void CDeleteClipData::LoadItems()
 	}
 
 	m_clipList.SetItemCountEx(row, 0);
+	AutosizeContentColumns();
 }
 
 void CDeleteClipData::SetNotifyWnd(HWND hWnd)
@@ -1257,32 +1301,17 @@ void CDeleteClipData::OnCancel()
 
 void CDeleteClipData::OnBnClickedBtCompactAndRepair()
 {
-	auto msg = theApp.m_Language.GetString("CompactRepairWarning", "Warning this can take quite a long time and require up to double the hard drive space as your current database size, Continue?");
+	auto msg = theApp.m_Language.GetString("CompactRepairWarning",
+		"Warning this can take quite a long time, may require up to double the hard drive space as your current database size, and will renumber clip IDs. Continue?");
 	int ret = MessageBox(msg, _T("Ditto"), MB_OKCANCEL);
 
 	if (ret == IDOK)
 	{
 		CWaitCursor wait;
-
-		try
+		if (CompactRepairAndRenumberIds())
 		{
-			try
-			{
-				for (int i = 0; i < 100; i++)
-				{
-					int toDeleteCount = theApp.m_db.execScalar(_T("SELECT COUNT(clipID) FROM MainDeletes"));
-					if (toDeleteCount <= 0)
-						break;
-
-					RemoveOldEntries(false);
-				}
-			}
-			CATCH_SQLITE_EXCEPTION
-
-			theApp.m_db.execDML(_T("PRAGMA auto_vacuum = 1"));
-			theApp.m_db.execQuery(_T("VACUUM"));
 			SetDbSize();
+			LoadItems();
 		}
-		CATCH_SQLITE_EXCEPTION
 	}
 }

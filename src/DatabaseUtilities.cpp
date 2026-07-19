@@ -7,10 +7,116 @@
 #include "DatabaseUtilities.h"
 #include "ProcessPaste.h"
 #include <io.h>
+#include <map>
 #include "Path.h"
 #include "zlib.h"
 #include "..\Shared\TextConvert.h"
 using namespace nsPath;
+
+namespace
+{
+	const TCHAR* DELETE_DATA_TRIGGER_SQL =
+		_T("CREATE TRIGGER delete_data_trigger BEFORE DELETE ON Main FOR EACH ROW\n")
+		_T("BEGIN\n")
+		_T("INSERT INTO MainDeletes VALUES(old.lID, datetime('now'));\n")
+		_T("END\n");
+
+	long RemapClipId(const std::map<long, long>& idMap, long id)
+	{
+		if (id <= 0 || idMap.empty())
+			return id;
+
+		auto it = idMap.find(id);
+		return (it != idMap.end()) ? it->second : id;
+	}
+
+	void ApplyClipIdRemap(const std::map<long, long>& idMap)
+	{
+		if (idMap.empty())
+			return;
+
+		theApp.m_GroupID = RemapClipId(idMap, theApp.m_GroupID);
+		theApp.m_GroupParentID = RemapClipId(idMap, theApp.m_GroupParentID);
+		theApp.m_GroupDefaultID = RemapClipId(idMap, theApp.m_GroupDefaultID);
+		theApp.m_FocusID = RemapClipId(idMap, theApp.m_FocusID);
+		theApp.m_oldGroupID = RemapClipId(idMap, theApp.m_oldGroupID);
+		theApp.m_oldGroupParentID = RemapClipId(idMap, theApp.m_oldGroupParentID);
+
+		const INT_PTR count = g_HotKeys.GetSize();
+		for (INT_PTR i = 0; i < count; i++)
+		{
+			CHotKey* pHotKey = g_HotKeys[i];
+			if (pHotKey != NULL && pHotKey->m_clipId > 0)
+				pHotKey->m_clipId = (int)RemapClipId(idMap, pHotKey->m_clipId);
+		}
+	}
+
+	BOOL RenumberMainClipIds(CppSQLite3DB& db, std::map<long, long>& changedIds)
+	{
+		changedIds.clear();
+
+		const int rowCount = db.execScalar(_T("SELECT COUNT(lID) FROM Main"));
+		if (rowCount <= 0)
+			return TRUE;
+
+		db.execDML(_T("DROP TABLE IF EXISTS id_map"));
+		db.execDML(_T("CREATE TEMP TABLE id_map(old_id INTEGER PRIMARY KEY, new_id INTEGER NOT NULL UNIQUE)"));
+		db.execDML(_T("INSERT INTO id_map(old_id, new_id) SELECT lID, ROW_NUMBER() OVER (ORDER BY lID) FROM Main"));
+
+		const int changedCount = db.execScalar(_T("SELECT COUNT(*) FROM id_map WHERE old_id != new_id"));
+		if (changedCount <= 0)
+		{
+			db.execDML(_T("DROP TABLE id_map"));
+			return TRUE;
+		}
+
+		db.execDML(_T("BEGIN IMMEDIATE"));
+		try
+		{
+			db.execDML(_T("DROP TRIGGER IF EXISTS delete_data_trigger"));
+
+			db.execDML(
+				_T("UPDATE Data SET lParentID = (SELECT new_id FROM id_map WHERE old_id = Data.lParentID) ")
+				_T("WHERE lParentID IN (SELECT old_id FROM id_map WHERE old_id != new_id)"));
+
+			db.execDML(
+				_T("UPDATE CopyBuffers SET lClipID = (SELECT new_id FROM id_map WHERE old_id = CopyBuffers.lClipID) ")
+				_T("WHERE lClipID IN (SELECT old_id FROM id_map WHERE old_id != new_id)"));
+
+			db.execDML(
+				_T("UPDATE Main SET lParentID = (SELECT new_id FROM id_map WHERE old_id = Main.lParentID) ")
+				_T("WHERE lParentID IN (SELECT old_id FROM id_map WHERE old_id != new_id)"));
+
+			// Move every primary key out of the positive range first so remapped
+			// values cannot collide with IDs that have not been rewritten yet.
+			db.execDML(_T("UPDATE Main SET lID = -lID"));
+			db.execDML(_T("UPDATE Main SET lID = (SELECT new_id FROM id_map WHERE old_id = -Main.lID)"));
+
+			db.execDML(_T("DELETE FROM sqlite_sequence WHERE name = 'Main'"));
+			db.execDML(_T("INSERT INTO sqlite_sequence(name, seq) SELECT 'Main', IFNULL(MAX(lID), 0) FROM Main"));
+
+			db.execDML(DELETE_DATA_TRIGGER_SQL);
+			db.execDML(_T("COMMIT"));
+		}
+		catch (CppSQLite3Exception&)
+		{
+			try { db.execDML(_T("ROLLBACK")); } catch (CppSQLite3Exception&) {}
+			try { db.execDML(_T("DROP TABLE IF EXISTS id_map")); } catch (CppSQLite3Exception&) {}
+			throw;
+		}
+
+		CppSQLite3Query q = db.execQuery(_T("SELECT old_id, new_id FROM id_map WHERE old_id != new_id"));
+		while (q.eof() == false)
+		{
+			changedIds[q.getIntField(_T("old_id"))] = q.getIntField(_T("new_id"));
+			q.nextRow();
+		}
+
+		db.execDML(_T("DROP TABLE id_map"));
+		Log(StrF(_T("RenumberMainClipIds remapped %d clip ids"), (int)changedIds.size()));
+		return TRUE;
+	}
+}
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -852,6 +958,32 @@ BOOL RepairDatabase()
 	//	}
 
 	return TRUE;
+}
+
+BOOL CompactRepairAndRenumberIds()
+{
+	try
+	{
+		for (int i = 0; i < 100; i++)
+		{
+			const int toDeleteCount = theApp.m_db.execScalar(_T("SELECT COUNT(clipID) FROM MainDeletes"));
+			if (toDeleteCount <= 0)
+				break;
+
+			RemoveOldEntries(false);
+		}
+
+		std::map<long, long> changedIds;
+		RenumberMainClipIds(theApp.m_db, changedIds);
+		ApplyClipIdRemap(changedIds);
+
+		theApp.m_db.execDML(_T("PRAGMA auto_vacuum = 1"));
+		theApp.m_db.execQuery(_T("VACUUM"));
+
+		theApp.RefreshView();
+		return TRUE;
+	}
+	CATCH_SQLITE_EXCEPTION_AND_RETURN(FALSE)
 }
 
 BOOL RemoveOldEntries(bool checkIdleTime)

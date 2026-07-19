@@ -195,7 +195,6 @@
 		<Item English_Text = "Maximum Number of Saved Copies" ID = "2008"></Item>
 		<Item English_Text = "Paste Entries Expire after" ID = "2009"></Item>
 		<Item English_Text = "Days" ID = "2043"></Item>
-		<Item English_Text = "Compact and Repair" ID = "1028"></Item>
 		<Item English_Text = "Check Now" ID = "1030"></Item>
 		<Item English_Text = "Allow Duplicates" ID = "1037"></Item>
 		<Item English_Text = "Update Clip Order On Paste" ID = "1038"></Item>
@@ -222,6 +221,7 @@
 		
 		<Item English_Text = "Theme" ID = "2092"></Item>
 		<Item English_Text = "About Theme" ID = "2094"></Item>
+		<Item English_Text = "Preview" ID = "2175">Preview</Item>
 		
 		<Item English_Text = "Popup Position" ID = "2100"></Item>
 		<Item English_Text = "Display Font" ID = "2101"></Item>
@@ -433,7 +433,7 @@
 		<Item English_Text = "[Disconnected]" ID = "disconnected"></Item>
 		<Item English_Text = "Ditto is running minimized, Ditto can be opened by hot keys or by clicking the task tray icon" ID = "StartuMsg"></Item>
 		<Item English_Text = "There are no results for" ID = "NoSearchResults"></Item>
-		<Item English_Text = "Warning this can take quite a long time and require up to double the hard drive space as your current database size, Continue?" ID = "CompactRepairWarning"></Item>
+		<Item English_Text = "Warning this can take quite a long time, may require up to double the hard drive space as your current database size, and will renumber clip IDs. Continue?" ID = "CompactRepairWarning"></Item>
 		<Item English_Text = "Prompt For Name" ID = "prompt_for_name"></Item>
 		<Item English_Text = "(Follow windows light/dark themes)" ID = "FollowWindowsTheme"></Item>
 		
@@ -511,6 +511,24 @@
 		<Item English_Text = "Win" ID = "2100"></Item>
 		<Item English_Text = "Win" ID = "2102"></Item>
 		<Item English_Text = "Win" ID = "2106"></Item>
+
+		<Item English_Text = "Copy Buffer 4" ID = "2118"></Item>
+		<Item English_Text = "Copy" ID = "2115"></Item>
+		<Item English_Text = "Paste" ID = "2116"></Item>
+		<Item English_Text = "Cut" ID = "2117"></Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1045"></Item>
+		<Item English_Text = "Win" ID = "2110"></Item>
+		<Item English_Text = "Win" ID = "2112"></Item>
+		<Item English_Text = "Win" ID = "2114"></Item>
+
+		<Item English_Text = "Copy Buffer 5" ID = "2128"></Item>
+		<Item English_Text = "Copy" ID = "2125"></Item>
+		<Item English_Text = "Paste" ID = "2126"></Item>
+		<Item English_Text = "Cut" ID = "2127"></Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1046"></Item>
+		<Item English_Text = "Win" ID = "2120"></Item>
+		<Item English_Text = "Win" ID = "2122"></Item>
+		<Item English_Text = "Win" ID = "2124"></Item>
 	</Ditto_Options_CopyBuffers>
 	
 	<Ditto_GlobalHotKeys>
@@ -545,7 +563,8 @@
 		<Item English_Text = "Selected Size" ID = "2116"></Item>
 		<Item English_Text = "Selected Count" ID = "2117"></Item>
 		<Item English_Text = "Delete" ID = "2118"></Item>
-		<Item English_Text = "Cancel" ID = "2"></Item>
+		<Item English_Text = "Close" ID = "8">Close</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">Compact and Repair Database</Item>
 		<Item English_Text = "Title" ID = "Title"></Item>
 		<Item English_Text = "Created" ID = "Created"></Item>
 		<Item English_Text = "Last Used" ID = "LastUsed"></Item>
@@ -554,6 +573,16 @@
 		<Item English_Text = "Quick Paste Text" ID = "QuickPasteText"></Item>
 		<Item English_Text = "Usage Count" ID = "UsageCount">Usage Count</Item>
 	</Ditto_DeleteClipData>
+
+	<Ditto_Adv_Options>
+		<Item English_Text = "Advanced Options" ID = "-1">Advanced Options</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">Compact and Repair Database</Item>
+		<Item English_Text = "On Copy Scripts" ID = "1040">On Copy Scripts</Item>
+		<Item English_Text = "On Paste Scripts" ID = "1041">On Paste Scripts</Item>
+		<Item English_Text = "Reset Clip Order" ID = "1042">Reset Clip Order</Item>
+		<Item English_Text = "OK" ID = "1">OK</Item>
+		<Item English_Text = "Cancel" ID = "2">Cancel</Item>
+	</Ditto_Adv_Options>
 	
 	<Ditto_Options_Quick_Paste_Keyboard>
 		<Item English_Text = "Quick Paste Keyboard" ID = "-1" PropertyPage = "true"></Item>

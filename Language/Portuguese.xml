@@ -149,7 +149,6 @@
 		<Item English_Text = "Maximum Number of Saved Copies" ID = "2008">Total de seguranças</Item>
 		<Item English_Text = "Paste Entries Expire after" ID = "2009">Entradas coladas expiram após</Item>
 		<Item English_Text = "Days" ID = "2043">dias</Item>
-		<Item English_Text = "Compact and Repair" ID = "1028">Comprimir e reparar</Item>
 		<Item English_Text = "Automatically check for updates online" ID = "1029">Procurar actualizações automaticamente</Item>
 		<Item English_Text = "Check Now" ID = "1030">Procurar agora</Item>
 		<Item English_Text = "Allow Duplicates" ID = "1037">Permitir duplicados</Item>
@@ -174,6 +173,7 @@
 		<Item English_Text = "Accepted Copy Applications (seperate by ;)" ID = "2098">Aplicações de cópia aceites (separadas por ;)</Item>
 		<Item English_Text = "Include" ID = "2095">Incluir</Item>
 		<Item English_Text = "Exclude" ID = "2096">Excluir</Item>
+		<Item English_Text = "Preview" ID = "2175">Preview</Item>
 	</Ditto_Options_General>
 	<Ditto_Options_Supported_Types>
 		<Item English_Text = "&Add" ID = "1015">&Adicionar</Item>
@@ -438,6 +438,24 @@
 		<Item English_Text = "Win" ID = "2100">Win</Item>
 		<Item English_Text = "Win" ID = "2102">Win</Item>
 		<Item English_Text = "Win" ID = "2106">Win</Item>
+	
+		<Item English_Text = "Copy Buffer 4" ID = "2118">Espaço de cópia 4</Item>
+		<Item English_Text = "Copy" ID = "2115">Copiar</Item>
+		<Item English_Text = "Paste" ID = "2116">Colar</Item>
+		<Item English_Text = "Cut" ID = "2117">Cortar</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1045">Reproduzir som ao copiar</Item>
+		<Item English_Text = "Win" ID = "2110">Win</Item>
+		<Item English_Text = "Win" ID = "2112">Win</Item>
+		<Item English_Text = "Win" ID = "2114">Win</Item>
+
+		<Item English_Text = "Copy Buffer 5" ID = "2128">Espaço de cópia 5</Item>
+		<Item English_Text = "Copy" ID = "2125">Copiar</Item>
+		<Item English_Text = "Paste" ID = "2126">Colar</Item>
+		<Item English_Text = "Cut" ID = "2127">Cortar</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1046">Reproduzir som ao copiar</Item>
+		<Item English_Text = "Win" ID = "2120">Win</Item>
+		<Item English_Text = "Win" ID = "2122">Win</Item>
+		<Item English_Text = "Win" ID = "2124">Win</Item>
 	</Ditto_Options_CopyBuffers>
 	
 	<Ditto_GlobalHotKeys>
@@ -470,13 +488,23 @@
 		<Item English_Text = "Selected Size" ID = "2116">Tamanho seleccionado</Item>
 		<Item English_Text = "Selected Count" ID = "2117">Total seleccionado</Item>
 		<Item English_Text = "Delete" ID = "2118">Eliminar</Item>
-		<Item English_Text = "Cancel" ID = "2">Cancelar</Item>
+		<Item English_Text = "Close" ID = "8">Fechar</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">Comprimir e reparar</Item>
 		<Item English_Text = "Title" ID = "Title">Título</Item>
 		<Item English_Text = "Created" ID = "Created">Criado</Item>
 		<Item English_Text = "Last Used" ID = "LastUsed">Última utilização</Item>
 		<Item English_Text = "Format" ID = "Format">Formato</Item>
 		<Item English_Text = "Data Size" ID = "DataSize">Tamanho dos dados</Item>
 	</Ditto_DeleteClipData>
+	<Ditto_Adv_Options>
+		<Item English_Text = "Advanced Options" ID = "-1">Advanced Options</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">Comprimir e reparar</Item>
+		<Item English_Text = "On Copy Scripts" ID = "1040">On Copy Scripts</Item>
+		<Item English_Text = "On Paste Scripts" ID = "1041">On Paste Scripts</Item>
+		<Item English_Text = "Reset Clip Order" ID = "1042">Reset Clip Order</Item>
+		<Item English_Text = "OK" ID = "1">Aceitar</Item>
+		<Item English_Text = "Cancel" ID = "2">Cancelar</Item>
+	</Ditto_Adv_Options>
 	<Ditto_Options_Quick_Paste_Keyboard>
 		<Item English_Text = "Quick Paste Keyboard" ID = "-1" PropertyPage = "true">Teclado de colagem rápida</Item>
 		<Item English_Text = "Reset" ID = "2144">Repor</Item>

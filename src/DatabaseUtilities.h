@@ -27,6 +27,7 @@ BOOL CreateDB(CString csPath);
 
 BOOL CompactDatabase();
 BOOL RepairDatabase();
+BOOL CompactRepairAndRenumberIds();
 BOOL RemoveOldEntries(bool checkIdleTime);
 BOOL DeleteNonUsedClips(bool fromAppWindow);
 

@@ -183,7 +183,6 @@
 		<Item English_Text = "Maximum Number of Saved Copies" ID = "2008">保存复制项目的最大数量</Item>
 		<Item English_Text = "Paste Entries Expire after" ID = "2009">粘贴条目的过期日期</Item>
 		<Item English_Text = "Days" ID = "2043">天</Item>
-		<Item English_Text = "Compact and Repair" ID = "1028">压缩和修复</Item>
 		<Item English_Text = "Check Now" ID = "1030">立即检查</Item>
 		<Item English_Text = "Allow Duplicates" ID = "1037">允许重复</Item>
 		<Item English_Text = "Update Clip Order On Paste" ID = "1038">粘贴时更新剪贴项顺序</Item>
@@ -209,7 +208,8 @@
 		<Item English_Text = "Exclude" ID = "2096">排除</Item>
 		
 		<Item English_Text = "Theme" ID = "2092">主题</Item>
-		<Item English_Text = "About Theme" ID = "2094">关于主题</Item>		
+		<Item English_Text = "About Theme" ID = "2094">关于主题</Item>
+		<Item English_Text = "Preview" ID = "2175">预览</Item>
 		
 		<Item English_Text = "Popup Position" ID = "2100">窗口弹出位置</Item>
 		<Item English_Text = "Display Font" ID = "2101">显示字体</Item>
@@ -421,7 +421,7 @@
 		<Item English_Text = "[Disconnected]" ID = "disconnected">[已断开连接]</Item>
 		<Item English_Text = "Ditto is running minimized, Ditto can be opened by hot keys or by clicking the task tray icon" ID = "StartupMsg">Ditto 正以最小化方式运行，可通过热键或单击任务栏图标打开</Item>
 		<Item English_Text = "There are no results for" ID = "NoSearchResults">没有任何结果</Item>
-		<Item English_Text = "Warning this can take quite a long time and require up to double the hard drive space as your current database size, Continue?" ID = "CompactRepairWarning">警告，这可能需要相当长的时间，并且需要两倍于你当前数据库大小的硬盘空间，是否继续？</Item>
+		<Item English_Text = "Warning this can take quite a long time, may require up to double the hard drive space as your current database size, and will renumber clip IDs. Continue?" ID = "CompactRepairWarning">警告：这可能需要较长时间，磁盘空间可能约为当前数据库的两倍，并将重新编排剪贴 ID。是否继续？</Item>
 		<Item English_Text = "Prompt For Name" ID = "prompt_for_name">提示名字</Item>
 		<Item English_Text = "(Follow windows light/dark themes)" ID = "FollowWindowsTheme">（遵循 Windows 明/暗主题）</Item>
 		
@@ -478,27 +478,45 @@
 		<Item English_Text = "Paste" ID = "2080">粘贴</Item>
 		<Item English_Text = "Cut" ID = "2081">剪切</Item>
 		<Item English_Text = "Play Sound on Copy" ID = "1042">复制时播放声音</Item>
-		<Item English_Text = "Win" ID = "2085"></Item>
-		<Item English_Text = "Win" ID = "2086"></Item>
-		<Item English_Text = "Win" ID = "2087"></Item>
+		<Item English_Text = "Win" ID = "2085">Win</Item>
+		<Item English_Text = "Win" ID = "2086">Win</Item>
+		<Item English_Text = "Win" ID = "2087">Win</Item>
 		
 		<Item English_Text = "Copy Buffer 2" ID = "2098">复制缓冲区 2</Item>
 		<Item English_Text = "Copy" ID = "2093">复制</Item>
 		<Item English_Text = "Paste" ID = "2094">粘贴</Item>
 		<Item English_Text = "Cut" ID = "2097">剪切</Item>
 		<Item English_Text = "Play Sound on Copy" ID = "1043">复制时播放声音</Item>
-		<Item English_Text = "Win" ID = "2090"></Item>
-		<Item English_Text = "Win" ID = "2092"></Item>
-		<Item English_Text = "Win" ID = "2096"></Item>
+		<Item English_Text = "Win" ID = "2090">Win</Item>
+		<Item English_Text = "Win" ID = "2092">Win</Item>
+		<Item English_Text = "Win" ID = "2096">Win</Item>
 		
 		<Item English_Text = "Copy Buffer 3" ID = "2108">复制缓冲区 3</Item>
 		<Item English_Text = "Copy" ID = "2103">复制</Item>
 		<Item English_Text = "Paste" ID = "2104">粘贴</Item>
 		<Item English_Text = "Cut" ID = "2107">剪切</Item>
 		<Item English_Text = "Play Sound on Copy" ID = "1044">复制时播放声音</Item>
-		<Item English_Text = "Win" ID = "2100"></Item>
-		<Item English_Text = "Win" ID = "2102"></Item>
-		<Item English_Text = "Win" ID = "2106"></Item>
+		<Item English_Text = "Win" ID = "2100">Win</Item>
+		<Item English_Text = "Win" ID = "2102">Win</Item>
+		<Item English_Text = "Win" ID = "2106">Win</Item>
+
+		<Item English_Text = "Copy Buffer 4" ID = "2118">复制缓冲区 4</Item>
+		<Item English_Text = "Copy" ID = "2115">复制</Item>
+		<Item English_Text = "Paste" ID = "2116">粘贴</Item>
+		<Item English_Text = "Cut" ID = "2117">剪切</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1045">复制时播放声音</Item>
+		<Item English_Text = "Win" ID = "2110">Win</Item>
+		<Item English_Text = "Win" ID = "2112">Win</Item>
+		<Item English_Text = "Win" ID = "2114">Win</Item>
+
+		<Item English_Text = "Copy Buffer 5" ID = "2128">复制缓冲区 5</Item>
+		<Item English_Text = "Copy" ID = "2125">复制</Item>
+		<Item English_Text = "Paste" ID = "2126">粘贴</Item>
+		<Item English_Text = "Cut" ID = "2127">剪切</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1046">复制时播放声音</Item>
+		<Item English_Text = "Win" ID = "2120">Win</Item>
+		<Item English_Text = "Win" ID = "2122">Win</Item>
+		<Item English_Text = "Win" ID = "2124">Win</Item>
 	</Ditto_Options_CopyBuffers>
 	
 	<Ditto_GlobalHotKeys>
@@ -533,7 +551,8 @@
 		<Item English_Text = "Selected Size" ID = "2116">选定大小</Item>
 		<Item English_Text = "Selected Count" ID = "2117">选定数量</Item>
 		<Item English_Text = "Delete" ID = "2118">删除</Item>
-		<Item English_Text = "Cancel" ID = "2">取消</Item>
+		<Item English_Text = "Close" ID = "8">关闭</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">压缩并修复数据库</Item>
 		<Item English_Text = "Title" ID = "Title">标题</Item>
 		<Item English_Text = "Created" ID = "Created">创建</Item>
 		<Item English_Text = "Last Used" ID = "LastUsed">最后使用</Item>
@@ -542,6 +561,16 @@
 		<Item English_Text = "Quick Paste Text" ID = "QuickPasteText">快速粘贴文本</Item>
 		<Item English_Text = "Usage Count" ID = "UsageCount">使用次数</Item>
 	</Ditto_DeleteClipData>
+
+	<Ditto_Adv_Options>
+		<Item English_Text = "Advanced Options" ID = "-1">高级选项</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">压缩并修复数据库</Item>
+		<Item English_Text = "On Copy Scripts" ID = "1040">复制时脚本</Item>
+		<Item English_Text = "On Paste Scripts" ID = "1041">粘贴时脚本</Item>
+		<Item English_Text = "Reset Clip Order" ID = "1042">重置剪贴顺序</Item>
+		<Item English_Text = "OK" ID = "1">确定</Item>
+		<Item English_Text = "Cancel" ID = "2">取消</Item>
+	</Ditto_Adv_Options>
 	
 	<Ditto_Options_Quick_Paste_Keyboard>
 		<Item English_Text = "Quick Paste Keyboard" ID = "-1" PropertyPage = "true">快速粘贴按键</Item>

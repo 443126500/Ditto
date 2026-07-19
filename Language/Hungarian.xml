@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Ditto_Language_File Version = "1" Author = "Kiss Dénes László" Notes = "2018. 09. 12.; https://fuszerez.hu" LanguageCode = "hun">
 	<Ditto_Right_Click_Menu>
 		<Item English_Text = "Groups" ID = "-1">Csoportok</Item>
@@ -152,7 +152,6 @@
 		<Item English_Text = "Maximum Number of Saved Copies" ID = "2008">A mentett másolatok maximális száma</Item>
 		<Item English_Text = "Paste Entries Expire after" ID = "2009">Az adatok beillesztése lejár</Item>
 		<Item English_Text = "Days" ID = "2043">Napok</Item>
-		<Item English_Text = "Compact and Repair" ID = "1028">Csomagolás és javítás</Item>
 		<Item English_Text = "Check Now" ID = "1030">Ellenőrizd most</Item>
 		<Item English_Text = "Allow Duplicates" ID = "1037">Duplikátumok engedélyezése</Item>
 		<Item English_Text = "Update Clip Order On Paste" ID = "1038">Duplázási bejegyzések engedélyezése</Item>
@@ -176,7 +175,7 @@
 		<Item English_Text = "Accepted Copy Applications (separate by ;)" ID = "2098">Másolatkérelmek (pontosvesszővel elválasztva)</Item>
 		<Item English_Text = "Include" ID = "2095">Beleértve</Item>
 		<Item English_Text = "Exclude" ID = "2096">Kizárva</Item>
-		
+		<Item English_Text = "Preview" ID = "2175">Preview</Item>
 	</Ditto_Options_General>
 	<Ditto_Options_Supported_Types>
 		<Item English_Text = "Add" ID = "1015">Hozzáad</Item>
@@ -470,6 +469,24 @@
 		<Item English_Text = "Win" ID = "2100">WIN</Item>
 		<Item English_Text = "Win" ID = "2102">WIN</Item>
 		<Item English_Text = "Win" ID = "2106">WIN</Item>
+	
+		<Item English_Text = "Copy Buffer 4" ID = "2118">Másoló puffer 4</Item>
+		<Item English_Text = "Copy" ID = "2115">Másol</Item>
+		<Item English_Text = "Paste" ID = "2116">Beilleszt</Item>
+		<Item English_Text = "Cut" ID = "2117">Kivág</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1045">Hang lejátszása másolás közben</Item>
+		<Item English_Text = "Win" ID = "2110">Win</Item>
+		<Item English_Text = "Win" ID = "2112">Win</Item>
+		<Item English_Text = "Win" ID = "2114">Win</Item>
+
+		<Item English_Text = "Copy Buffer 5" ID = "2128">Másoló puffer 5</Item>
+		<Item English_Text = "Copy" ID = "2125">Másol</Item>
+		<Item English_Text = "Paste" ID = "2126">Beilleszt</Item>
+		<Item English_Text = "Cut" ID = "2127">Kivág</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1046">Hang lejátszása másolás közben</Item>
+		<Item English_Text = "Win" ID = "2120">Win</Item>
+		<Item English_Text = "Win" ID = "2122">Win</Item>
+		<Item English_Text = "Win" ID = "2124">Win</Item>
 	</Ditto_Options_CopyBuffers>
 	
 	<Ditto_GlobalHotKeys>
@@ -504,13 +521,23 @@
 		<Item English_Text = "Selected Size" ID = "2116">Válasszon méretet</Item>
 		<Item English_Text = "Selected Count" ID = "2117">Válasszon számot</Item>
 		<Item English_Text = "Delete" ID = "2118">Törlés</Item>
-		<Item English_Text = "Cancel" ID = "2">Mégse</Item>
+		<Item English_Text = "Close" ID = "8">Bezárás</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">Csomagolás és javítás</Item>
 		<Item English_Text = "Title" ID = "Title">Cím</Item>
 		<Item English_Text = "Created" ID = "Created">Készítette</Item>
 		<Item English_Text = "Last Used" ID = "LastUsed">Utoljára használt</Item>
 		<Item English_Text = "Format" ID = "Format">Formátum</Item>
 		<Item English_Text = "Data Size" ID = "DataSize">Adatok mérete</Item>
 	</Ditto_DeleteClipData>
+	<Ditto_Adv_Options>
+		<Item English_Text = "Advanced Options" ID = "-1">Advanced Options</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">Csomagolás és javítás</Item>
+		<Item English_Text = "On Copy Scripts" ID = "1040">On Copy Scripts</Item>
+		<Item English_Text = "On Paste Scripts" ID = "1041">On Paste Scripts</Item>
+		<Item English_Text = "Reset Clip Order" ID = "1042">Reset Clip Order</Item>
+		<Item English_Text = "OK" ID = "1">OK</Item>
+		<Item English_Text = "Cancel" ID = "2">Mégse</Item>
+	</Ditto_Adv_Options>
 	
 	<Ditto_Options_Quick_Paste_Keyboard>
 		<Item English_Text = "Quick Paste Keyboard" ID = "-1" PropertyPage = "true">Gyors beillesztés billentyű</Item>

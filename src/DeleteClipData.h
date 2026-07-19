@@ -65,6 +65,7 @@ protected:
 
 
 	void InitListCtrlCols();
+	void AutosizeContentColumns();
 	virtual BOOL OnInitDialog();
 
 	void SetDbSize();

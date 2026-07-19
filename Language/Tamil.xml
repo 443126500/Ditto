@@ -161,7 +161,6 @@
 		<Item English_Text = "Maximum Number of Saved Copies" ID = "2008">சேமிக்கப்பட்ட நகல்களின் அதிகபட்ச எண்ணிக்கை</Item>
 		<Item English_Text = "Paste Entries Expire after" ID = "2009">ஒட்டு உள்ளீடுகள் இதற்க்குப் பிறகு காலாவதியாகும்</Item>
 		<Item English_Text = "Days" ID = "2043">நாட்கள்</Item>
-		<Item English_Text = "Compact and Repair" ID = "1028">சுருக்க மற்றும் பழுதுபார்ப்பு</Item>
 		<Item English_Text = "Check Now" ID = "1030">இப்போது சரிபார்க்கவும்</Item>
 		<Item English_Text = "Allow Duplicates" ID = "1037">நகல்களை அனுமதி</Item>
 		<Item English_Text = "Update Clip Order On Paste" ID = "1038">ஒட்டுதலில் இடைநிலைப் பலகை ஒழுங்கு புதுப்பிக்கவும்</Item>
@@ -187,6 +186,7 @@
 		
 		<Item English_Text = "Theme" ID = "2092">கருப்பொருள்</Item>
 		<Item English_Text = "About Theme" ID = "2094">கருப்பொருள் பற்றி</Item>
+		<Item English_Text = "Preview" ID = "2175">Preview</Item>
 		
 		<Item English_Text = "Popup Position" ID = "2100"></Item>
 		<Item English_Text = "Display Font" ID = "2101"></Item>
@@ -434,6 +434,24 @@
 		<Item English_Text = "Win" ID = "2100">சாளரம்</Item>
 		<Item English_Text = "Win" ID = "2102">சாளரம்</Item>
 		<Item English_Text = "Win" ID = "2106">சாளரம்</Item>
+	
+		<Item English_Text = "Copy Buffer 4" ID = "2118">Copy Buffer 4</Item>
+		<Item English_Text = "Copy" ID = "2115">நகலெடு</Item>
+		<Item English_Text = "Paste" ID = "2116">ஒட்டு</Item>
+		<Item English_Text = "Cut" ID = "2117">வெட்டு</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1045">நகலில் ஒலியை இயக்கு</Item>
+		<Item English_Text = "Win" ID = "2110">Win</Item>
+		<Item English_Text = "Win" ID = "2112">Win</Item>
+		<Item English_Text = "Win" ID = "2114">Win</Item>
+
+		<Item English_Text = "Copy Buffer 5" ID = "2128">Copy Buffer 5</Item>
+		<Item English_Text = "Copy" ID = "2125">நகலெடு</Item>
+		<Item English_Text = "Paste" ID = "2126">ஒட்டு</Item>
+		<Item English_Text = "Cut" ID = "2127">வெட்டு</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1046">நகலில் ஒலியை இயக்கு</Item>
+		<Item English_Text = "Win" ID = "2120">Win</Item>
+		<Item English_Text = "Win" ID = "2122">Win</Item>
+		<Item English_Text = "Win" ID = "2124">Win</Item>
 	</Ditto_Options_CopyBuffers>
 	<Ditto_GlobalHotKeys>
 		<Item English_Text = "Global Hot Keys" ID = "-1">உலகளாவிய சூடான விசைகள்</Item>
@@ -466,13 +484,23 @@
 		<Item English_Text = "Selected Size" ID = "2116">தேர்ந்தெடுக்கப்பட்ட அளவு</Item>
 		<Item English_Text = "Selected Count" ID = "2117">தேர்ந்தெடுக்கப்பட்ட எண்ணிக்கை</Item>
 		<Item English_Text = "Delete" ID = "2118">நீக்கு</Item>
-		<Item English_Text = "Cancel" ID = "2">ரத்துசெய்</Item>
+		<Item English_Text = "Close" ID = "8">Close</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">சுருக்க மற்றும் பழுதுபார்ப்பு</Item>
 		<Item English_Text = "Title" ID = "Title">தலைப்பு</Item>
 		<Item English_Text = "Created" ID = "Created">உருவாக்கப்பட்டது</Item>
 		<Item English_Text = "Last Used" ID = "LastUsed">கடைசியாகப் பயன்படுத்தப்பட்டது</Item>
 		<Item English_Text = "Format" ID = "Format">வடிவமைப்பு</Item>
 		<Item English_Text = "Data Size" ID = "DataSize">தரவு அளவு</Item>
 	</Ditto_DeleteClipData>
+	<Ditto_Adv_Options>
+		<Item English_Text = "Advanced Options" ID = "-1">Advanced Options</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">சுருக்க மற்றும் பழுதுபார்ப்பு</Item>
+		<Item English_Text = "On Copy Scripts" ID = "1040">On Copy Scripts</Item>
+		<Item English_Text = "On Paste Scripts" ID = "1041">On Paste Scripts</Item>
+		<Item English_Text = "Reset Clip Order" ID = "1042">Reset Clip Order</Item>
+		<Item English_Text = "OK" ID = "1">சரி</Item>
+		<Item English_Text = "Cancel" ID = "2">ரத்துசெய்</Item>
+	</Ditto_Adv_Options>
 
 	<Ditto_Options_Quick_Paste_Keyboard>
 		<Item English_Text = "Quick Paste Keyboard" ID = "-1" PropertyPage = "true">விரைவு ஒட்டு விசைப்பலகை</Item>

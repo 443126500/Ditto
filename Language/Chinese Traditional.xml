@@ -183,7 +183,6 @@
 		<Item English_Text = "Maximum Number of Saved Copies" ID = "2008">儲存複製項的最大數量</Item>
 		<Item English_Text = "Paste Entries Expire after" ID = "2009">貼上項目的保留期為</Item>
 		<Item English_Text = "Days" ID = "2043">天</Item>
-		<Item English_Text = "Compact and Repair" ID = "1028">壓縮及修復</Item>
 		<Item English_Text = "Check Now" ID = "1030">立刻檢查</Item>
 		<Item English_Text = "Allow Duplicates" ID = "1037">允許重複內容</Item>
 		<Item English_Text = "Update Clip Order On Paste" ID = "1038">貼上時更新剪貼順序</Item>
@@ -209,7 +208,8 @@
 		<Item English_Text = "Exclude" ID = "2096">排除</Item>
 		
 		<Item English_Text = "Theme" ID = "2092">主题</Item>
-		<Item English_Text = "About Theme" ID = "2094">关于主题</Item>		
+		<Item English_Text = "About Theme" ID = "2094">关于主题</Item>
+		<Item English_Text = "Preview" ID = "2175">預覽</Item>
 		
 		<Item English_Text = "Popup Position" ID = "2100">窗口弹出位置</Item>
 		<Item English_Text = "Display Font" ID = "2101">显示字体</Item>
@@ -535,6 +535,24 @@
 		<Item English_Text = "Win" ID = "2100">Win</Item>
 		<Item English_Text = "Win" ID = "2102">Win</Item>
 		<Item English_Text = "Win" ID = "2106">Win</Item>
+	
+		<Item English_Text = "Copy Buffer 4" ID = "2118">複製暫存區 4</Item>
+		<Item English_Text = "Copy" ID = "2115">複製</Item>
+		<Item English_Text = "Paste" ID = "2116">貼上</Item>
+		<Item English_Text = "Cut" ID = "2117">剪下</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1045">複製時播放音效</Item>
+		<Item English_Text = "Win" ID = "2110">Win</Item>
+		<Item English_Text = "Win" ID = "2112">Win</Item>
+		<Item English_Text = "Win" ID = "2114">Win</Item>
+
+		<Item English_Text = "Copy Buffer 5" ID = "2128">複製暫存區 5</Item>
+		<Item English_Text = "Copy" ID = "2125">複製</Item>
+		<Item English_Text = "Paste" ID = "2126">貼上</Item>
+		<Item English_Text = "Cut" ID = "2127">剪下</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1046">複製時播放音效</Item>
+		<Item English_Text = "Win" ID = "2120">Win</Item>
+		<Item English_Text = "Win" ID = "2122">Win</Item>
+		<Item English_Text = "Win" ID = "2124">Win</Item>
 	</Ditto_Options_CopyBuffers>
 	
 	<Ditto_GlobalHotKeys>
@@ -569,14 +587,25 @@
 		<Item English_Text = "Selected Size" ID = "2116">選擇項容量</Item>
 		<Item English_Text = "Selected Count" ID = "2117">選擇項計數</Item>
 		<Item English_Text = "Delete" ID = "2118">刪除</Item>
-		<Item English_Text = "Cancel" ID = "2">取消</Item>
+		<Item English_Text = "Close" ID = "8">關閉</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">壓縮並修復資料庫</Item>
 		<Item English_Text = "Title" ID = "Title">標題</Item>
 		<Item English_Text = "Created" ID = "Created">建立日期</Item>
 		<Item English_Text = "Last Used" ID = "LastUsed">上次使用日期</Item>
 		<Item English_Text = "Format" ID = "Format">格式</Item>
 		<Item English_Text = "Data Size" ID = "DataSize">資料容量</Item>
-
+		<Item English_Text = "Quick Paste Text" ID = "QuickPasteText">快速貼上文字</Item>
+		<Item English_Text = "Usage Count" ID = "UsageCount">使用次數</Item>
 	</Ditto_DeleteClipData>
+	<Ditto_Adv_Options>
+		<Item English_Text = "Advanced Options" ID = "-1">進階選項</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">壓縮並修復資料庫</Item>
+		<Item English_Text = "On Copy Scripts" ID = "1040">複製時指令碼</Item>
+		<Item English_Text = "On Paste Scripts" ID = "1041">貼上時指令碼</Item>
+		<Item English_Text = "Reset Clip Order" ID = "1042">重設剪貼順序</Item>
+		<Item English_Text = "OK" ID = "1">確定</Item>
+		<Item English_Text = "Cancel" ID = "2">取消</Item>
+	</Ditto_Adv_Options>
 	
 	<Ditto_Options_Quick_Paste_Keyboard>
 		<Item English_Text = "Quick Paste Keyboard" ID = "-1" PropertyPage = "true">快速粘贴按键</Item>

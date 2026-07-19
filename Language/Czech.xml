@@ -151,7 +151,6 @@
 		<Item English_Text = "Maximum Number of Saved Copies" ID = "2008">Maximální počet uložených kopií</Item>
 		<Item English_Text = "Paste Entries Expire after" ID = "2009">Vložené vstupy vyprší za</Item>
 		<Item English_Text = "Days" ID = "2043">dnů</Item>
-		<Item English_Text = "Compact and Repair" ID = "1028">Zkonsolidovat a opravit</Item>
 		<Item English_Text = "Check Now" ID = "1030">Ověřit nyní</Item>
 		<Item English_Text = "Allow Duplicates" ID = "1037">Povolit duplikáty</Item>
 		<Item English_Text = "Update Clip Order On Paste" ID = "1038">Aktualizovat pořadí klipu při vložení</Item>
@@ -175,7 +174,7 @@
 		<Item English_Text = "Accepted Copy Applications (seperate by ;)" ID = "2098">Akceptované kopírovací aplikace (oddělené ;)</Item>
 		<Item English_Text = "Include" ID = "2095">Zahrnuté</Item>
 		<Item English_Text = "Exclude" ID = "2096">Vyloučené</Item>
-
+		<Item English_Text = "Preview" ID = "2175">Preview</Item>
 	</Ditto_Options_General>
 	<Ditto_Options_Supported_Types>
 		<Item English_Text = "&Add" ID = "1015">&Přidat</Item>
@@ -449,6 +448,24 @@
 		<Item English_Text = "Win" ID = "2100">Win</Item>
 		<Item English_Text = "Win" ID = "2102">Win</Item>
 		<Item English_Text = "Win" ID = "2106">Win</Item>
+	
+		<Item English_Text = "Copy Buffer 4" ID = "2118">Zásobník kopírování 4</Item>
+		<Item English_Text = "Copy" ID = "2115">Kopírovat</Item>
+		<Item English_Text = "Paste" ID = "2116">Vložit</Item>
+		<Item English_Text = "Cut" ID = "2117">Vyjmout</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1045">Zvuk při kopírování</Item>
+		<Item English_Text = "Win" ID = "2110">Win</Item>
+		<Item English_Text = "Win" ID = "2112">Win</Item>
+		<Item English_Text = "Win" ID = "2114">Win</Item>
+
+		<Item English_Text = "Copy Buffer 5" ID = "2128">Zásobník kopírování 5</Item>
+		<Item English_Text = "Copy" ID = "2125">Kopírovat</Item>
+		<Item English_Text = "Paste" ID = "2126">Vložit</Item>
+		<Item English_Text = "Cut" ID = "2127">Vyjmout</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1046">Zvuk při kopírování</Item>
+		<Item English_Text = "Win" ID = "2120">Win</Item>
+		<Item English_Text = "Win" ID = "2122">Win</Item>
+		<Item English_Text = "Win" ID = "2124">Win</Item>
 	</Ditto_Options_CopyBuffers>
 
 	<Ditto_GlobalHotKeys>
@@ -483,13 +500,23 @@
 		<Item English_Text = "Selected Size" ID = "2116">Zvolená velikost</Item>
 		<Item English_Text = "Selected Count" ID = "2117">Zvolený počet</Item>
 		<Item English_Text = "Delete" ID = "2118">Smazat</Item>
-		<Item English_Text = "Cancel" ID = "2">Storno</Item>
+		<Item English_Text = "Close" ID = "8">Zavřít</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">Zkonsolidovat a opravit</Item>
 		<Item English_Text = "Title" ID = "Title">Název</Item>
 		<Item English_Text = "Created" ID = "Created">Vytvořeno</Item>
 		<Item English_Text = "Last Used" ID = "LastUsed">Naposledy použito</Item>
 		<Item English_Text = "Format" ID = "Format">Formát</Item>
 		<Item English_Text = "Data Size" ID = "DataSize">Velikost dat</Item>
 	</Ditto_DeleteClipData>
+	<Ditto_Adv_Options>
+		<Item English_Text = "Advanced Options" ID = "-1">Advanced Options</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">Zkonsolidovat a opravit</Item>
+		<Item English_Text = "On Copy Scripts" ID = "1040">On Copy Scripts</Item>
+		<Item English_Text = "On Paste Scripts" ID = "1041">On Paste Scripts</Item>
+		<Item English_Text = "Reset Clip Order" ID = "1042">Reset Clip Order</Item>
+		<Item English_Text = "OK" ID = "1">OK</Item>
+		<Item English_Text = "Cancel" ID = "2">Storno</Item>
+	</Ditto_Adv_Options>
 
 	<Ditto_Options_Quick_Paste_Keyboard>
 		<Item English_Text = "Quick Paste Keyboard" ID = "-1" PropertyPage = "true"></Item>

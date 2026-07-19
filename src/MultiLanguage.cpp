@@ -55,6 +55,8 @@ void CMultiLanguage::ClearArrays()
 	ClearArray(m_OptionsSheet);
 	ClearArray(m_OptionsCopyBuffers);
 	ClearArray(m_GlobalHotKeys);
+	ClearArray(m_DeleteClipData);
+	ClearArray(m_AdvOptions);
 
 	ClearMap(m_StringMap);
 }
@@ -243,6 +245,11 @@ bool CMultiLanguage::UpdateDeleteClipData(CWnd *pParent)
 	return UpdateWindowToLanguage(pParent, m_DeleteClipData);
 }
 
+bool CMultiLanguage::UpdateAdvOptions(CWnd *pParent)
+{
+	return UpdateWindowToLanguage(pParent, m_AdvOptions);
+}
+
 bool CMultiLanguage::UpdateMenuToLanguage(CMenu *pMenu, LANGUAGE_ARRAY &Array)
 {
 	INT_PTR size = Array.GetSize();
@@ -398,6 +405,7 @@ bool CMultiLanguage::LoadLanguageFile(CString csFile)
 	bRet = LoadSection(*ItemHeader, m_OptionsCopyBuffers, "Ditto_Options_CopyBuffers");
 	bRet = LoadSection(*ItemHeader, m_GlobalHotKeys, "Ditto_GlobalHotKeys");
 	bRet = LoadSection(*ItemHeader, m_DeleteClipData, "Ditto_DeleteClipData");
+	bRet = LoadSection(*ItemHeader, m_AdvOptions, "Ditto_Adv_Options");
 	
 	bRet = LoadStringTableSection(*ItemHeader, m_StringMap, "Ditto_String_Table");
 

@@ -151,14 +151,13 @@
 		<Item English_Text = "Maximum Number of Saved Copies" ID = "2008">Maximum aantal opgeslagen clips</Item>		
 		<Item English_Text = "Paste Entries Expire after" ID = "2009">Opgeslagen clips vervallen na</Item>	
 		<Item English_Text = "Days" ID = "2043">Dagen</Item>		
-		<Item English_Text = "Compact and Repair" ID = "1028">Komprimeren en Repareren</Item>		
 		<Item English_Text = "Check Now" ID = "1030">Check Nu</Item>		
 		<Item English_Text = "Allow Duplicates" ID = "1037">Duplicaten toestaan</Item>		
 		<Item English_Text = "Update Clip Order On Paste" ID = "1038">Tijdstip van plakken bepaalt volgorde cliplijst</Item>		
 		<Item English_Text = "Save Multi-Pastes" ID = "1039">Diverse geselecteerde clips gelijktijdig plakken</Item>		
 		<Item English_Text = "Hide Ditto on Hot Key if Ditto is Visible" ID = "1040">Verberg Ditto met sneltoets</Item>		
 		<Item English_Text = "Amount of text to save for description" ID = "2044">Hoeveel tekst opslaan in de omschrijving? </Item>		
-		<Item English_Text = "On copy play the sound" ID = "2045">Speel geluid af bij kopiëren</Item>		
+		<Item English_Text = "On copy play the sound" ID = "2045">Speel geluid af bij kopiï¿½ren</Item>		
 		<Item English_Text = "Play" ID = "2034">Speel</Item>		
 		<Item English_Text = "Paste Clip in active window after selection" ID = "1041">Geselecteerde Clip plakken in het actieve venster</Item>		
 		<Item English_Text = "Maximum Clip Size in Bytes" ID = "2046">Maximale Clipgrootte in Bytes</Item>		
@@ -172,9 +171,10 @@
 		<Item English_Text = "Multi-Paste clip separator ([LF] = line feed)" ID = "2090">Regelwijziging bij multi-plakken ([LF] = line feed)</Item>
 		
 		//New item added 3/1/11
-		<Item English_Text = "Accepted Copy Applications (seperate by ;)" ID = "2098">Aanvaarde programma's voor Kopiëren(scheidingsteken= ;)</Item>
+		<Item English_Text = "Accepted Copy Applications (seperate by ;)" ID = "2098">Aanvaarde programma's voor Kopiï¿½ren(scheidingsteken= ;)</Item>
 		<Item English_Text = "Include" ID = "2095">Inclusief</Item>
 		<Item English_Text = "Exclude" ID = "2096">Exclusief</Item>
+		<Item English_Text = "Preview" ID = "2175">Preview</Item>
 	</Ditto_Options_General>
 	<Ditto_Options_Supported_Types>
 		<Item English_Text = "&Add" ID = "1015">Toevoegen</Item>		
@@ -349,7 +349,7 @@
 		<Item English_Text = "Download updated version?" ID = "Download_Update">Download nieuwe versie?</Item>		
 		<Item English_Text = "No updates available" ID = "No_Updates">Geen updates beschikbaar</Item>		
 		<Item English_Text = "This will remove all Copy Entries!\\n\\nContinue?" ID = "Remove_All">Alle clip ingangen worden verwijderd</Item>		
-		<Item English_Text = "Disconnect from Clipboard" ID = "Disconnect_Clipboard">Verbinding met klembord beëindigd</Item>		
+		<Item English_Text = "Disconnect from Clipboard" ID = "Disconnect_Clipboard">Verbinding met klembord beï¿½indigd</Item>		
 		<Item English_Text = "Connect to Clipboard" ID = "Connect_Clipboard">Met klembord verbinden</Item>		
 		<Item English_Text = "Unable to initialize DAO/Jet db engine.  DAO will now be installed.\n\nRestart Ditto after installation of DAO." ID = "Error_Init_Dao_Intall">Niet mogenlijk DAO/Jet db machine te initialiseren. DAO wordt nu geinstalleerd.\\n\\n Herstart Ditto na installatie van DAO.</Item>		
 		<Item English_Text = "NO TARGET" ID = "No_Target">Geen bestemming</Item>	
@@ -357,8 +357,8 @@
 		//New strings added in 3.6 6-9-06
 		<Item English_Text = "Prompt when deleting clips" ID = "2039">Waarschuwen wanneer clips gewist worden</Item>
 		<Item English_Text = "Delete Selected Clips?" ID = "Delete_Clip">Geselecteerde clips wissen?</Item>
-		<Item English_Text = "Error importing exported clip" ID = "Error_Importing">Foute import van geëxporteerde clip</Item>
-		<Item English_Text = "Error parsing exported clip" ID = "Error_Parsing">Foute analyse van geëxporteerde clip</Item>
+		<Item English_Text = "Error importing exported clip" ID = "Error_Importing">Foute import van geï¿½xporteerde clip</Item>
+		<Item English_Text = "Error parsing exported clip" ID = "Error_Parsing">Foute analyse van geï¿½xporteerde clip</Item>
 		<Item English_Text = "Clip placed on clipboard" ID = "Importing_Good">Clip op klembord geplaatst </Item>
 		<Item English_Text = "Successfully imported" ID = "Import_Successfully">Importeren geslaagd</Item>
 		<Item English_Text = "clip" ID = "Clip">Clip</Item>
@@ -443,7 +443,7 @@
 		<Item English_Text = "Copy" ID = "2079">Kopieer</Item>
 		<Item English_Text = "Paste" ID = "2080">Plakken</Item>
 		<Item English_Text = "Cut" ID = "2081">Knippen</Item>
-		<Item English_Text = "Play Sound on Copy" ID = "1042">Speel geluid bij kopiëren</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1042">Speel geluid bij kopiï¿½ren</Item>
 		<Item English_Text = "Win" ID = "2085">Win</Item>
 		<Item English_Text = "Win" ID = "2086">Win</Item>
 		<Item English_Text = "Win" ID = "2087">Win</Item>
@@ -452,7 +452,7 @@
 		<Item English_Text = "Copy" ID = "2093">Kopieer</Item>
 		<Item English_Text = "Paste" ID = "2094">Plakken</Item>
 		<Item English_Text = "Cut" ID = "2097">Knippen</Item>
-		<Item English_Text = "Play Sound on Copy" ID = "1043">Speel geluid bij kopiëren</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1043">Speel geluid bij kopiï¿½ren</Item>
 		<Item English_Text = "Win" ID = "2090">Win</Item>
 		<Item English_Text = "Win" ID = "2092">Win</Item>
 		<Item English_Text = "Win" ID = "2096">Win</Item>
@@ -461,10 +461,28 @@
 		<Item English_Text = "Copy" ID = "2103">Kopieer</Item>
 		<Item English_Text = "Paste" ID = "2104">Plakken</Item>
 		<Item English_Text = "Cut" ID = "2107">Knippen</Item>
-		<Item English_Text = "Play Sound on Copy" ID = "1044">Speel geluid bij kopiëren</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1044">Speel geluid bij kopiï¿½ren</Item>
 		<Item English_Text = "Win" ID = "2100">Win</Item>
 		<Item English_Text = "Win" ID = "2102">Win</Item>
 		<Item English_Text = "Win" ID = "2106">Win</Item>
+	
+		<Item English_Text = "Copy Buffer 4" ID = "2118">Kopieer Buffer 4</Item>
+		<Item English_Text = "Copy" ID = "2115">Kopieer</Item>
+		<Item English_Text = "Paste" ID = "2116">Plakken</Item>
+		<Item English_Text = "Cut" ID = "2117">Knippen</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1045">Speel geluid bij kopiï¿½ren</Item>
+		<Item English_Text = "Win" ID = "2110">Win</Item>
+		<Item English_Text = "Win" ID = "2112">Win</Item>
+		<Item English_Text = "Win" ID = "2114">Win</Item>
+
+		<Item English_Text = "Copy Buffer 5" ID = "2128">Kopieer Buffer 5</Item>
+		<Item English_Text = "Copy" ID = "2125">Kopieer</Item>
+		<Item English_Text = "Paste" ID = "2126">Plakken</Item>
+		<Item English_Text = "Cut" ID = "2127">Knippen</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1046">Speel geluid bij kopiï¿½ren</Item>
+		<Item English_Text = "Win" ID = "2120">Win</Item>
+		<Item English_Text = "Win" ID = "2122">Win</Item>
+		<Item English_Text = "Win" ID = "2124">Win</Item>
 	</Ditto_Options_CopyBuffers>
 	
 	<Ditto_GlobalHotKeys>
@@ -497,13 +515,23 @@
 		<Item English_Text = "Selected Size" ID = "2116">Geselecteerde Grootte</Item>
 		<Item English_Text = "Selected Count" ID = "2117">Geselecteerd Aantal</Item>
 		<Item English_Text = "Delete" ID = "2118">Verwijder</Item>
-		<Item English_Text = "Cancel" ID = "2">Annuleer</Item>
+		<Item English_Text = "Close" ID = "8">Sluiten</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">Komprimeren en Repareren</Item>
 		<Item English_Text = "Title" ID = "Title">Titel</Item>
 		<Item English_Text = "Created" ID = "Created">Aangemaakt</Item>
 		<Item English_Text = "Last Used" ID = "LastUsed">Laatst Gebruikt</Item>
 		<Item English_Text = "Format" ID = "Format">Formaat</Item>
 		<Item English_Text = "Data Size" ID = "DataSize">Data Grootte</Item>
 	</Ditto_DeleteClipData>
+	<Ditto_Adv_Options>
+		<Item English_Text = "Advanced Options" ID = "-1">Advanced Options</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">Komprimeren en Repareren</Item>
+		<Item English_Text = "On Copy Scripts" ID = "1040">On Copy Scripts</Item>
+		<Item English_Text = "On Paste Scripts" ID = "1041">On Paste Scripts</Item>
+		<Item English_Text = "Reset Clip Order" ID = "1042">Reset Clip Order</Item>
+		<Item English_Text = "OK" ID = "1">OK</Item>
+		<Item English_Text = "Cancel" ID = "2">Annuleer</Item>
+	</Ditto_Adv_Options>
 	
 	<Ditto_Options_Quick_Paste_Keyboard>
 		<Item English_Text = "Quick Paste Keyboard" ID = "-1" PropertyPage = "true">Toetsenbord Snel Plakken</Item>

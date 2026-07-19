@@ -168,6 +168,8 @@ BOOL CAdvGeneral::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
+	theApp.m_Language.UpdateAdvOptions(this);
+
 	m_propertyGrid.ModifyStyle(0, WS_CLIPCHILDREN);
 
 	HICON b = (HICON)LoadImage(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_MAINFRAME), IMAGE_ICON, 64, 64, LR_SHARED);
@@ -1022,32 +1024,14 @@ void CAdvGeneral::OnSize(UINT nType, int cx, int cy)
 
 void CAdvGeneral::OnBnClickedBtCompactAndRepair()
 {
-	auto msg = theApp.m_Language.GetString("CompactRepairWarning", "Warning this can take quite a long time and require up to double the hard drive space as your current database size, Continue?");
+	auto msg = theApp.m_Language.GetString("CompactRepairWarning",
+		"Warning this can take quite a long time, may require up to double the hard drive space as your current database size, and will renumber clip IDs. Continue?");
 	int ret = MessageBox(msg, _T("Ditto"), MB_OKCANCEL);
 
 	if (ret == IDOK)
 	{
 		CWaitCursor wait;
-
-		try
-		{
-			try
-			{
-				for (int i = 0; i < 100; i++)
-				{
-					int toDeleteCount = theApp.m_db.execScalar(_T("SELECT COUNT(clipID) FROM MainDeletes"));
-					if (toDeleteCount <= 0)
-						break;
-
-					RemoveOldEntries(false);
-				}
-			}
-			CATCH_SQLITE_EXCEPTION
-
-			theApp.m_db.execDML(_T("PRAGMA auto_vacuum = 1"));
-			theApp.m_db.execQuery(_T("VACUUM"));
-		}
-		CATCH_SQLITE_EXCEPTION
+		CompactRepairAndRenumberIds();
 	}
 }
 

@@ -59,6 +59,7 @@ public:
 	bool UpdateOptionCopyBuffers(CWnd *pParent);
 	bool UpdateGlobalHotKeys(CWnd *pParent);
 	bool UpdateDeleteClipData(CWnd *pParent);
+	bool UpdateAdvOptions(CWnd *pParent);
 
 	CString GetGlobalHotKeyString(CString csID, CString csDefault);
 	CString GetDeleteClipDataString(CString csID, CString csDefault);
@@ -95,6 +96,7 @@ protected:
 	LANGUAGE_ARRAY m_OptionsCopyBuffers;
 	LANGUAGE_ARRAY m_GlobalHotKeys;
 	LANGUAGE_ARRAY m_DeleteClipData;
+	LANGUAGE_ARRAY m_AdvOptions;
 
 	LANGUAGE_MAP	m_StringMap;
 
