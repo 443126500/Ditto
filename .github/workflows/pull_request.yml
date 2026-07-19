@@ -4,6 +4,11 @@ on:
   pull_request:
     paths-ignore:
       - '**/README.md'
+  push:
+    branches:
+      - 'feature/**'
+    paths-ignore:
+      - '**/README.md'
 
 env:
   SOLUTION_FILE_PATH: CP_Main_10.sln
