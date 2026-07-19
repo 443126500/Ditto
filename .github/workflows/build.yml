@@ -10,6 +10,10 @@ on:
 env:
   SOLUTION_FILE_PATH: CP_Main_10.sln
 
+# build-tag-number 会创建/删除 build-number-* ref；Publish to GitHub 也会写 tag/release
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
@@ -21,7 +25,7 @@ jobs:
         id: buildnumber
         uses: onyxmueller/build-tag-number@v1
         with:
-          token: ${{secrets.GITHUB_TOKEN}} 
+          token: ${{ secrets.GITHUB_TOKEN }} 
           
       - name: Set the value
         run: |
