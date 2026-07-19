@@ -30,6 +30,15 @@ jobs:
       - name: Build 64bit
         run: msbuild CP_Main_10.sln /p:Configuration=Release /p:Platform=x64
 
+      - name: Prepare runtime files
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path Release64\Language | Out-Null
+          New-Item -ItemType Directory -Force -Path Release64\Themes | Out-Null
+          New-Item -ItemType Directory -Force -Path Release64\Addins | Out-Null
+          Copy-Item -Force Debug\Language\* Release64\Language\
+          Copy-Item -Force Debug\Themes\* Release64\Themes\
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -39,3 +48,5 @@ jobs:
             Release64\Ditto.exe
             Release64\ICU_Loader.dll
             Release64\Addins\DittoUtil.dll
+            Release64\Language\
+            Release64\Themes\

@@ -147,7 +147,7 @@ void CDeleteClipData::InitListCtrlCols()
 		CFont* pOldFont = pDC->SelectObject(m_clipList.GetFont());
 		idWidth = pDC->GetTextExtent(_T("00000")).cx + 16;
 		dateWidth = pDC->GetTextExtent(COleDateTime::GetCurrentTime().Format()).cx + 24;
-		usageWidth = pDC->GetTextExtent(theApp.m_Language.GetDeleteClipDataString("UsageCount", "使用次数")).cx + 24;
+		usageWidth = pDC->GetTextExtent(theApp.m_Language.GetDeleteClipDataString("UsageCount", "Usage Count")).cx + 24;
 		pDC->SelectObject(pOldFont);
 		m_clipList.ReleaseDC(pDC);
 	}
@@ -155,7 +155,7 @@ void CDeleteClipData::InitListCtrlCols()
 	m_clipList.InsertColumn(0, theApp.m_Language.GetDeleteClipDataString("ID", "ID"), LVCFMT_LEFT, idWidth);
 	m_clipList.InsertColumn(1, theApp.m_Language.GetDeleteClipDataString("Title", "Title"), LVCFMT_LEFT, 350);
 	m_clipList.InsertColumn(2, theApp.m_Language.GetDeleteClipDataString("QuickPasteText", "Quick Paste Text"), LVCFMT_LEFT, 200);
-	m_clipList.InsertColumn(3, theApp.m_Language.GetDeleteClipDataString("UsageCount", "使用次数"), LVCFMT_RIGHT, usageWidth);
+	m_clipList.InsertColumn(3, theApp.m_Language.GetDeleteClipDataString("UsageCount", "Usage Count"), LVCFMT_RIGHT, usageWidth);
 	m_clipList.InsertColumn(4, theApp.m_Language.GetDeleteClipDataString("Created", "Created"), LVCFMT_LEFT, dateWidth);
 	m_clipList.InsertColumn(5, theApp.m_Language.GetDeleteClipDataString("LastUsed", "Last Used"), LVCFMT_LEFT, dateWidth);
 	m_clipList.InsertColumn(6, theApp.m_Language.GetDeleteClipDataString("Format", "Format"), LVCFMT_LEFT, 150);
