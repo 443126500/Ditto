@@ -1563,7 +1563,7 @@ LRESULT CMainFrame::OnRestoreDb(WPARAM wParam, LPARAM lParam)
 
 void CMainFrame::OnFirstDeleteallnonusedclips()
 {
-	int nRet = MessageBox(theApp.m_Language.GetString("Delete_All_Non_Used_Clips", "Delete all clips with usage count less than 1 that are not groups, in groups, marked as never auto delete, has a shortcut key or marked as sticky.\r\n\r\nThis cannot be undone."), _T("Ditto"), MB_OKCANCEL | MB_TOPMOST);
+	int nRet = MessageBox(theApp.m_Language.GetString("Delete_All_Non_Used_Clips", "将删除所有使用次数小于 1，且不属于分组、不在分组内、未标记为永不自动删除、未设置快捷键、未置顶的剪贴项。\r\n\r\n此操作无法撤销。"), _T("Ditto"), MB_OKCANCEL | MB_TOPMOST);
 	if (nRet != IDOK)
 	{
 		return;
