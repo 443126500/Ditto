@@ -1,4 +1,4 @@
-name: MSBuild
+name: Release Package
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
       - master
     paths-ignore:
       - '**/*.md'
+  workflow_dispatch:
 
 env:
   SOLUTION_FILE_PATH: CP_Main_10.sln
