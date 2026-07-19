@@ -8256,7 +8256,7 @@ bool CQPasteWnd::DoDeleteAllNonUsedClips()
 	bool bStartValue = m_bHideWnd;
 	m_bHideWnd = false;
 
-	int nRet = MessageBox(theApp.m_Language.GetString("Delete_All_Non_Used_Clips", "Delete all clips that are not groups, in groups, marked as never auto delete, has a shortcut key or marked as sticky.\r\n\r\nThis cannot be undone."), _T("Ditto"), MB_OKCANCEL | MB_TOPMOST);
+	int nRet = MessageBox(theApp.m_Language.GetString("Delete_All_Non_Used_Clips", "Delete all clips with usage count less than 1 that are not groups, in groups, marked as never auto delete, has a shortcut key or marked as sticky.\r\n\r\nThis cannot be undone."), _T("Ditto"), MB_OKCANCEL | MB_TOPMOST);
 
 	m_bHideWnd = bStartValue;
 	if (nRet != IDOK)

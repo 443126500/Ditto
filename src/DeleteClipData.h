@@ -14,7 +14,8 @@ class CDeleteData
 public:
 	CDeleteData() :
 		m_lID(-1),
-		m_dataSize(0)
+		m_dataSize(0),
+		m_pasteCount(0)
 	{
 	}
 
@@ -26,6 +27,7 @@ public:
 	CString m_clipboardFormat;
 	DWORD m_dataSize;
 	CString m_quickPasteText;
+	long m_pasteCount;
 };
 	
 	

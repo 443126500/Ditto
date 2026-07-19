@@ -240,7 +240,7 @@ UINT CProcessPaste::MarkAsPastedThread(LPVOID pParam)
 				for (int i = 0; i < clipCount; i++)
 				{
 					int id = pData->ids.ElementAt(i);
-					theApp.m_db.execDMLEx(_T("UPDATE Main SET lastPasteDate = %d where lID = %d;"), (int)CTime::GetCurrentTime().GetTime(), id);
+					theApp.m_db.execDMLEx(_T("UPDATE Main SET lastPasteDate = %d, pasteCount = IFNULL(pasteCount, 0) + 1 WHERE lID = %d;"), (int)CTime::GetCurrentTime().GetTime(), id);
 				}
 			}
 			CATCH_SQLITE_EXCEPTION

@@ -433,6 +433,8 @@
 		<Item English_Text = "At Caret" ID = "AtCaret">插入符号处</Item>
 		<Item English_Text = "At Cursor" ID = "AtCursor">光标处</Item>
 		<Item English_Text = "At Previous Position" ID = "AtPreviousPosition">上次打开的位置</Item>
+
+		<Item English_Text = "Delete all clips with usage count less than 1 that are not groups, in groups, marked as never auto delete, has a shortcut key or marked as sticky.\r\n\r\nThis cannot be undone." ID = "Delete_All_Non_Used_Clips">将删除所有使用次数小于 1，且不属于分组、不在分组内、未标记为永不自动删除、未设置快捷键、未置顶的剪贴项。\r\n\r\n此操作无法撤销。</Item>
 		
 	</Ditto_String_Table>
 	<Ditto_Options_Sheet>
@@ -538,6 +540,7 @@
 		<Item English_Text = "Format" ID = "Format">格式</Item>
 		<Item English_Text = "Data Size" ID = "DataSize">数据大小</Item>
 		<Item English_Text = "Quick Paste Text" ID = "QuickPasteText">快速粘贴文本</Item>
+		<Item English_Text = "Usage Count" ID = "UsageCount">使用次数</Item>
 	</Ditto_DeleteClipData>
 	
 	<Ditto_Options_Quick_Paste_Keyboard>

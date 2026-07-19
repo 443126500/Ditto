@@ -137,13 +137,29 @@ void CDeleteClipData::InitListCtrlCols()
 {
 	m_clipList.SetExtendedStyle(LVS_EX_FULLROWSELECT);
 
-	m_clipList.InsertColumn(0, theApp.m_Language.GetDeleteClipDataString("ID", "ID"), LVCFMT_LEFT, 50);
+	int idWidth = 48;
+	int dateWidth = 180;
+	int usageWidth = 80;
+
+	CDC* pDC = m_clipList.GetDC();
+	if (pDC != NULL)
+	{
+		CFont* pOldFont = pDC->SelectObject(m_clipList.GetFont());
+		idWidth = pDC->GetTextExtent(_T("00000")).cx + 16;
+		dateWidth = pDC->GetTextExtent(COleDateTime::GetCurrentTime().Format()).cx + 24;
+		usageWidth = pDC->GetTextExtent(theApp.m_Language.GetDeleteClipDataString("UsageCount", "Usage Count")).cx + 24;
+		pDC->SelectObject(pOldFont);
+		m_clipList.ReleaseDC(pDC);
+	}
+
+	m_clipList.InsertColumn(0, theApp.m_Language.GetDeleteClipDataString("ID", "ID"), LVCFMT_LEFT, idWidth);
 	m_clipList.InsertColumn(1, theApp.m_Language.GetDeleteClipDataString("Title", "Title"), LVCFMT_LEFT, 350);
 	m_clipList.InsertColumn(2, theApp.m_Language.GetDeleteClipDataString("QuickPasteText", "Quick Paste Text"), LVCFMT_LEFT, 200);
-	m_clipList.InsertColumn(3, theApp.m_Language.GetDeleteClipDataString("Created", "Created"), LVCFMT_LEFT, 150);
-	m_clipList.InsertColumn(4, theApp.m_Language.GetDeleteClipDataString("LastUsed", "Last Used"), LVCFMT_LEFT, 150);
-	m_clipList.InsertColumn(5, theApp.m_Language.GetDeleteClipDataString("Format", "Format"), LVCFMT_LEFT, 150);
-	m_clipList.InsertColumn(6, theApp.m_Language.GetDeleteClipDataString("DataSize", "Data Size"), LVCFMT_LEFT, 100);
+	m_clipList.InsertColumn(3, theApp.m_Language.GetDeleteClipDataString("UsageCount", "Usage Count"), LVCFMT_RIGHT, usageWidth);
+	m_clipList.InsertColumn(4, theApp.m_Language.GetDeleteClipDataString("Created", "Created"), LVCFMT_LEFT, dateWidth);
+	m_clipList.InsertColumn(5, theApp.m_Language.GetDeleteClipDataString("LastUsed", "Last Used"), LVCFMT_LEFT, dateWidth);
+	m_clipList.InsertColumn(6, theApp.m_Language.GetDeleteClipDataString("Format", "Format"), LVCFMT_LEFT, 150);
+	m_clipList.InsertColumn(7, theApp.m_Language.GetDeleteClipDataString("DataSize", "Data Size"), LVCFMT_LEFT, 100);
 }
 
 void CDeleteClipData::LoadItems()
@@ -164,7 +180,7 @@ void CDeleteClipData::LoadItems()
 		}
 	}
 
-	CppSQLite3Query q = theApp.m_db.execQueryEx(_T("SELECT Main.lID, Main.mText, Main.lDate, Main.lastPasteDate, Main.QuickPasteText, Data.lID AS DataID, Data.strClipBoardFormat, length(Data.ooData) AS DataLength ")
+	CppSQLite3Query q = theApp.m_db.execQueryEx(_T("SELECT Main.lID, Main.mText, Main.lDate, Main.lastPasteDate, Main.QuickPasteText, IFNULL(Main.pasteCount, 0) AS pasteCount, Data.lID AS DataID, Data.strClipBoardFormat, length(Data.ooData) AS DataLength ")
 													_T("FROM Data ")
 													_T("INNER JOIN Main on Main.lID = Data.lParentID ")
 													_T("ORDER BY length(ooData) DESC"));
@@ -181,6 +197,7 @@ void CDeleteClipData::LoadItems()
 		data.m_dataSize = q.getIntField(_T("DataLength"));
 		data.m_DatalID = q.getIntField(_T("DataID"));
 		data.m_quickPasteText = q.getStringField(_T("QuickPasteText"));
+		data.m_pasteCount = q.getIntField(_T("pasteCount"));
 
 		m_data.push_back(data);
 
@@ -536,25 +553,31 @@ void CDeleteClipData::OnLvnGetdispinfoList2(NMHDR *pNMHDR, LRESULT *pResult)
 				break;
 				case 3:
 				{
+					lstrcpyn(pDispInfo->item.pszText, StrF(_T("%d"), m_data[pDispInfo->item.iItem].m_pasteCount), pDispInfo->item.cchTextMax);
+					pDispInfo->item.pszText[pDispInfo->item.cchTextMax - 1] = '\0';
+				}
+				break;
+				case 4:
+				{
 					  COleDateTime dtTime(m_data[pDispInfo->item.iItem].m_createdDateTime.GetTime());
 					  lstrcpyn(pDispInfo->item.pszText, dtTime.Format(), pDispInfo->item.cchTextMax);
 					  pDispInfo->item.pszText[pDispInfo->item.cchTextMax - 1] = '\0';
 				}
 				break;
-				case 4:
+				case 5:
 				{	
 					  COleDateTime dtTime(m_data[pDispInfo->item.iItem].m_lastUsedDateTime.GetTime());
 					  lstrcpyn(pDispInfo->item.pszText, dtTime.Format(), pDispInfo->item.cchTextMax);
 					  pDispInfo->item.pszText[pDispInfo->item.cchTextMax - 1] = '\0';
 				}
 				break;
-				case 5:
+				case 6:
 				{
 					  lstrcpyn(pDispInfo->item.pszText, m_data[pDispInfo->item.iItem].m_clipboardFormat, pDispInfo->item.cchTextMax);
 					  pDispInfo->item.pszText[pDispInfo->item.cchTextMax - 1] = '\0';
 				}
 				break;
-				case 6:
+				case 7:
 				{
 					  const int MAX_FILE_SIZE_BUFFER = 255;
 					  TCHAR szFileSize[MAX_FILE_SIZE_BUFFER];
@@ -750,9 +773,24 @@ static bool SortByTitleAsc(const CDeleteData& a1, const CDeleteData& a2)
 }
 
 
-static bool SortByQuickPaste(const CDeleteData& a1, const CDeleteData& a2)
+static bool SortByQuickPasteDesc(const CDeleteData& a1, const CDeleteData& a2)
 {
 	return a1.m_quickPasteText > a2.m_quickPasteText;
+}
+
+static bool SortByQuickPasteAsc(const CDeleteData& a1, const CDeleteData& a2)
+{
+	return a1.m_quickPasteText < a2.m_quickPasteText;
+}
+
+static bool SortByPasteCountDesc(const CDeleteData& a1, const CDeleteData& a2)
+{
+	return a1.m_pasteCount > a2.m_pasteCount;
+}
+
+static bool SortByPasteCountAsc(const CDeleteData& a1, const CDeleteData& a2)
+{
+	return a1.m_pasteCount < a2.m_pasteCount;
 }
 
 static bool SortByCreatedDateDesc(const CDeleteData& a1, const CDeleteData& a2)
@@ -774,8 +812,6 @@ static bool SortByDataSizeDesc(const CDeleteData& a1, const CDeleteData& a2)
 {
 	return a1.m_dataSize > a2.m_dataSize;
 }
-
-
 
 static bool SortByCreatedDateAsc(const CDeleteData& a1, const CDeleteData& a2)
 {
@@ -818,29 +854,35 @@ void CDeleteClipData::OnLvnColumnclickList2(NMHDR *pNMHDR, LRESULT *pResult)
 		break;
 	case 2:
 		if (desc)
-			std::sort(m_data.begin(), m_data.end(), SortByQuickPaste);
+			std::sort(m_data.begin(), m_data.end(), SortByQuickPasteDesc);
 		else
-			std::sort(m_data.begin(), m_data.end(), SortByQuickPaste);
+			std::sort(m_data.begin(), m_data.end(), SortByQuickPasteAsc);
 		break;
 	case 3:
+		if (desc)
+			std::sort(m_data.begin(), m_data.end(), SortByPasteCountDesc);
+		else
+			std::sort(m_data.begin(), m_data.end(), SortByPasteCountAsc);
+		break;
+	case 4:
 		if(desc)
 			std::sort(m_data.begin(), m_data.end(), SortByCreatedDateDesc);
 		else
 			std::sort(m_data.begin(), m_data.end(), SortByCreatedDateAsc);
 		break;
-	case 4:
+	case 5:
 		if(desc)
 			std::sort(m_data.begin(), m_data.end(), SortByLastUsedDateDesc);
 		else
 			std::sort(m_data.begin(), m_data.end(), SortByLastUsedDateAsc);
 		break;
-	case 5:
+	case 6:
 		if(desc)
 			std::sort(m_data.begin(), m_data.end(), SortByFormatDesc);
 		else
 			std::sort(m_data.begin(), m_data.end(), SortByFormatAsc);
 		break;
-	case 6:
+	case 7:
 		if(desc)
 			std::sort(m_data.begin(), m_data.end(), SortByDataSizeDesc);
 		else

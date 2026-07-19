@@ -550,6 +550,7 @@
 		<Item English_Text = "Format" ID = "Format"></Item>
 		<Item English_Text = "Data Size" ID = "DataSize"></Item>
 		<Item English_Text = "Quick Paste Text" ID = "QuickPasteText"></Item>
+		<Item English_Text = "Usage Count" ID = "UsageCount"></Item>
 	</Ditto_DeleteClipData>
 	
 	<Ditto_Options_Quick_Paste_Keyboard>
