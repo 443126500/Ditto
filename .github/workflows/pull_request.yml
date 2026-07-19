@@ -29,3 +29,13 @@ jobs:
         
       - name: Build 64bit
         run: msbuild CP_Main_10.sln /p:Configuration=Release /p:Platform=x64
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ditto-x64-release
+          retention-days: 14
+          path: |
+            Release64\Ditto.exe
+            Release64\ICU_Loader.dll
+            Release64\Addins\DittoUtil.dll
