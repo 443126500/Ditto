@@ -36,8 +36,8 @@ jobs:
           New-Item -ItemType Directory -Force -Path Release64\Language | Out-Null
           New-Item -ItemType Directory -Force -Path Release64\Themes | Out-Null
           New-Item -ItemType Directory -Force -Path Release64\Addins | Out-Null
-          # Language 以仓库根目录 Language 为权威源；Themes 仍使用 Debug\Themes
-          Copy-Item -Force Language\* Release64\Language\
+          # Language / Themes 均以 Debug 目录为唯一源
+          Copy-Item -Force Debug\Language\* Release64\Language\
           if (Test-Path Debug\Themes) { Copy-Item -Force Debug\Themes\* Release64\Themes\ }
 
       - name: Upload build artifacts

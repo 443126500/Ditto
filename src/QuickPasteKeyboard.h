@@ -53,6 +53,7 @@ public:
 
 protected:
 	void InitListCtrlCols();
+	void AutosizeCommandColumn();
 	void LoadItems();
 	CString GetShortCutText(KeyboardArray ab);
 	CString GetShortCutText(KeyboardAB ab);

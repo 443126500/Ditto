@@ -57,6 +57,7 @@ void CMultiLanguage::ClearArrays()
 	ClearArray(m_GlobalHotKeys);
 	ClearArray(m_DeleteClipData);
 	ClearArray(m_AdvOptions);
+	ClearArray(m_AdvProperties);
 
 	ClearMap(m_StringMap);
 }
@@ -133,7 +134,9 @@ CString CMultiLanguage::GetDeleteClipDataString(CString csID, CString csDefault)
 		CLangItem *plItem = m_DeleteClipData[i];
 		if(plItem->m_csID == csID)
 		{
-			return plItem->m_csForeignLang;
+			if(plItem->m_csForeignLang.GetLength() > 0)
+				return plItem->m_csForeignLang;
+			break;
 		}
 	}
 
@@ -149,6 +152,23 @@ CString CMultiLanguage::GetQuickPasteKeyboardString(int id, CString csDefault)
 		if (plItem->m_nID == id)
 		{
 			return plItem->m_csForeignLang;
+		}
+	}
+
+	return csDefault;
+}
+
+CString CMultiLanguage::GetAdvPropertyString(int id, CString csDefault)
+{
+	INT_PTR size = m_AdvProperties.GetSize();
+	for (int i = 0; i < size; i++)
+	{
+		CLangItem *plItem = m_AdvProperties[i];
+		if (plItem->m_nID == id)
+		{
+			if (plItem->m_csForeignLang.GetLength() > 0)
+				return plItem->m_csForeignLang;
+			break;
 		}
 	}
 
@@ -243,6 +263,11 @@ bool CMultiLanguage::UpdateGlobalHotKeys(CWnd *pParent)
 bool CMultiLanguage::UpdateDeleteClipData(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_DeleteClipData);
+}
+
+bool CMultiLanguage::UpdateDeleteClipDataMenu(CMenu *pMenu)
+{
+	return UpdateMenuToLanguage(pMenu, m_DeleteClipData);
 }
 
 bool CMultiLanguage::UpdateAdvOptions(CWnd *pParent)
@@ -406,6 +431,7 @@ bool CMultiLanguage::LoadLanguageFile(CString csFile)
 	bRet = LoadSection(*ItemHeader, m_GlobalHotKeys, "Ditto_GlobalHotKeys");
 	bRet = LoadSection(*ItemHeader, m_DeleteClipData, "Ditto_DeleteClipData");
 	bRet = LoadSection(*ItemHeader, m_AdvOptions, "Ditto_Adv_Options");
+	bRet = LoadSection(*ItemHeader, m_AdvProperties, "Ditto_Adv_Properties");
 	
 	bRet = LoadStringTableSection(*ItemHeader, m_StringMap, "Ditto_String_Table");
 

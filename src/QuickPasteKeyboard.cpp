@@ -108,7 +108,29 @@ void CQuickPasteKeyboard::InitListCtrlCols()
 	m_list.SetExtendedStyle(LVS_EX_FULLROWSELECT);
 
 	m_list.InsertColumn(0, theApp.m_Language.GetString("QPHotKey", "Hot Key"), LVCFMT_LEFT, 150);
-	m_list.InsertColumn(1, theApp.m_Language.GetString("QPCommand", "Command"), LVCFMT_LEFT, 350);
+	m_list.InsertColumn(1, theApp.m_Language.GetString("QPCommand", "Command"), LVCFMT_LEFT, 120);
+}
+
+void CQuickPasteKeyboard::AutosizeCommandColumn()
+{
+	CDC* pDC = m_list.GetDC();
+	if (pDC == NULL)
+		return;
+
+	CFont* pOldFont = pDC->SelectObject(m_list.GetFont());
+
+	int width = pDC->GetTextExtent(theApp.m_Language.GetString("QPCommand", "Command")).cx;
+	const int count = m_list.GetItemCount();
+	for (int i = 0; i < count; i++)
+	{
+		width = max(width, pDC->GetTextExtent(m_list.GetItemText(i, 1)).cx);
+	}
+
+	const int pad = 24;
+	m_list.SetColumnWidth(1, min(max(width + pad, 80), 480));
+
+	pDC->SelectObject(pOldFont);
+	m_list.ReleaseDC(pDC);
 }
 
 int CALLBACK MyCompareProc(LPARAM lParam1, LPARAM lParam2, LPARAM lParamSort)
@@ -205,6 +227,7 @@ void CQuickPasteKeyboard::LoadItems()
 	}
 
 	m_list.SortItems(MyCompareProc, (LPARAM)&m_list);
+	AutosizeCommandColumn();
 
 	SelectedRow(0);
 }

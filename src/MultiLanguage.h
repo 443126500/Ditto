@@ -59,11 +59,13 @@ public:
 	bool UpdateOptionCopyBuffers(CWnd *pParent);
 	bool UpdateGlobalHotKeys(CWnd *pParent);
 	bool UpdateDeleteClipData(CWnd *pParent);
+	bool UpdateDeleteClipDataMenu(CMenu *pMenu);
 	bool UpdateAdvOptions(CWnd *pParent);
 
 	CString GetGlobalHotKeyString(CString csID, CString csDefault);
 	CString GetDeleteClipDataString(CString csID, CString csDefault);
 	CString GetQuickPasteKeyboardString(int id, CString csDefault);
+	CString GetAdvPropertyString(int id, CString csDefault);
 
 	CString GetString(CString csID, CString csDefault);
 
@@ -97,6 +99,7 @@ protected:
 	LANGUAGE_ARRAY m_GlobalHotKeys;
 	LANGUAGE_ARRAY m_DeleteClipData;
 	LANGUAGE_ARRAY m_AdvOptions;
+	LANGUAGE_ARRAY m_AdvProperties;
 
 	LANGUAGE_MAP	m_StringMap;
 

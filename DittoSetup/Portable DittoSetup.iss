@@ -59,7 +59,7 @@ Source: "..\zlib\zlib1.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "Changes.txt"; DestDir: "{app}"
 
-Source: "..\Language\*"; DestDir: "{app}\Language";
+Source: "..\Debug\Language\*"; DestDir: "{app}\Language";
 
 Source: "mfc-crt\*"; DestDir: "{app}"
 

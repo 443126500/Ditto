@@ -182,7 +182,6 @@
 		<Item English_Text = "Maximum Number of Saved Copies" ID = "2008">저장된 복사본 최대 수</Item>
 		<Item English_Text = "Paste Entries Expire after" ID = "2009">붙여넣기 항목 만료 기간</Item>
 		<Item English_Text = "Days" ID = "2043">일</Item>
-		<Item English_Text = "Compact and Repair" ID = "1028">압축 및 복구</Item>
 		<Item English_Text = "Check Now" ID = "1030">지금 확인</Item>
 		<Item English_Text = "Allow Duplicates" ID = "1037">중복 허용</Item>
 		<Item English_Text = "Update Clip Order On Paste" ID = "1038">붙여넣기 시 클립 순서 업데이트</Item>
@@ -209,6 +208,7 @@
 
 		<Item English_Text = "Theme" ID = "2092">테마</Item>
 		<Item English_Text = "About Theme" ID = "2094">테마 정보</Item>
+		<Item English_Text = "Preview" ID = "2175">미리보기</Item>
 
 		<Item English_Text = "Popup Position" ID = "2100">팝업 위치</Item>
 		<Item English_Text = "Display Font" ID = "2101">표시 글꼴</Item>
@@ -416,7 +416,7 @@
 		<Item English_Text = "[Disconnected]" ID = "disconnected">[연결 해제됨]</Item>
 		<Item English_Text = "Ditto is running minimized, Ditto can be opened by hot keys or by clicking the task tray icon" ID = "StartuMsg">Ditto가 최소화되어 실행 중입니다. 핫키 또는 작업 표시줄 아이콘 클릭으로 열 수 있습니다.</Item>
 		<Item English_Text = "There are no results for" ID = "NoSearchResults">검색 결과 없음:</Item>
-		<Item English_Text = "Warning this can take quite a long time and require up to double the hard drive space as your current database size, Continue?" ID = "CompactRepairWarning">경고: 시간이 오래 걸리며 현재 데이터베이스 크기의 두 배 저장 공간이 필요합니다. 계속하시겠습니까?</Item>
+		<Item English_Text = "Warning this can take quite a long time, may require up to double the hard drive space as your current database size, and will renumber clip IDs. Continue?" ID = "CompactRepairWarning">경고: 시간이 오래 걸릴 수 있으며 디스크 공간이 최대 두 배 필요하고 클립 ID가 다시 매겨집니다. 계속하시겠습니까?</Item>
 		<Item English_Text = "Prompt For Name" ID = "prompt_for_name">이름 입력 요청</Item>
 		<Item English_Text = "(Follow windows light/dark themes)" ID = "FollowWindowsTheme">(Windows 라이트/다크 테마 따르기)</Item>
 
@@ -429,6 +429,14 @@
 		<Item English_Text = "At Cursor" ID = "AtCursor">커서 위치</Item>
 		<Item English_Text = "At Previous Position" ID = "AtPreviousPosition">이전 위치</Item>
 		
+		<Item English_Text = "Ditto" ID = "AdvGroup_Ditto">Ditto</Item>
+		<Item English_Text = "Exclude clips by Regular Expressions" ID = "AdvGroup_RegexExclude">Exclude clips by Regular Expressions</Item>
+		<Item English_Text = "Process making the copy first must match this before the Regex will be applied (empty or * for all processes) (separate multiples by ;)" ID = "AdvDesc_Process">Process making the copy first must match this before the Regex will be applied (empty or * for all processes) (separate multiples by ;)</Item>
+		<Item English_Text = "If copied text matches this regular expression then the clip will not be saved to Ditto" ID = "AdvDesc_Regex">If copied text matches this regular expression then the clip will not be saved to Ditto</Item>
+		<Item English_Text = "Case insensitive. Recommended option is &quot;excel.exe; onenote.exe; powerpnt.exe&quot; " ID = "AdvDesc_IgnoreCFDIB">Case insensitive. Recommended option is "excel.exe; onenote.exe; powerpnt.exe" </Item>
+		<Item English_Text = "Copy Scripts" ID = "AdvCopyScriptsTitle">Copy Scripts</Item>
+		<Item English_Text = "Paste Scripts" ID = "AdvPasteScriptsTitle">Paste Scripts</Item>
+		<Item English_Text = "Select group to reset clip order" ID = "AdvResetClipOrderTitle">Select group to reset clip order</Item>
 	</Ditto_String_Table>
 	<Ditto_Options_Sheet>
 		<Item English_Text = "OK" ID = "1">확인</Item>
@@ -492,6 +500,24 @@
 		<Item English_Text = "Win" ID = "2100">Win</Item>
 		<Item English_Text = "Win" ID = "2102">Win</Item>
 		<Item English_Text = "Win" ID = "2106">Win</Item>
+	
+		<Item English_Text = "Copy Buffer 4" ID = "2118">복사 버퍼 4</Item>
+		<Item English_Text = "Copy" ID = "2115">복사</Item>
+		<Item English_Text = "Paste" ID = "2116">붙여넣기</Item>
+		<Item English_Text = "Cut" ID = "2117">잘라내기</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1045">복사 시 소리 재생</Item>
+		<Item English_Text = "Win" ID = "2110">Win</Item>
+		<Item English_Text = "Win" ID = "2112">Win</Item>
+		<Item English_Text = "Win" ID = "2114">Win</Item>
+
+		<Item English_Text = "Copy Buffer 5" ID = "2128">복사 버퍼 5</Item>
+		<Item English_Text = "Copy" ID = "2125">복사</Item>
+		<Item English_Text = "Paste" ID = "2126">붙여넣기</Item>
+		<Item English_Text = "Cut" ID = "2127">잘라내기</Item>
+		<Item English_Text = "Play Sound on Copy" ID = "1046">복사 시 소리 재생</Item>
+		<Item English_Text = "Win" ID = "2120">Win</Item>
+		<Item English_Text = "Win" ID = "2122">Win</Item>
+		<Item English_Text = "Win" ID = "2124">Win</Item>
 	</Ditto_Options_CopyBuffers>
 	
 	<Ditto_GlobalHotKeys>
@@ -526,16 +552,147 @@
 		<Item English_Text = "Selected Size" ID = "2116">선택한 크기</Item>
 		<Item English_Text = "Selected Count" ID = "2117">선택한 개수</Item>
 		<Item English_Text = "Delete" ID = "2118">삭제</Item>
-		<Item English_Text = "Cancel" ID = "2">취소</Item>
+		<Item English_Text = "Close" ID = "8">닫기</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">압축 및 복구</Item>
 		<Item English_Text = "Title" ID = "Title">제목</Item>
 		<Item English_Text = "Created" ID = "Created">생성됨</Item>
 		<Item English_Text = "Last Used" ID = "LastUsed">마지막 사용</Item>
 		<Item English_Text = "Format" ID = "Format">형식</Item>
 		<Item English_Text = "Data Size" ID = "DataSize">데이터 크기</Item>
 		<Item English_Text = "Quick Paste Text" ID = "QuickPasteText">빠른 붙여넣기 텍스트</Item>
+			<Item English_Text = "Delete selected items?  This cannot be undone!" ID = "DeleteSelectedConfirm">선택한 항목을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다!</Item>
+		<Item English_Text = "View Full Description	F3" ID = "32980">전체 설명 보기</Item>
+		<Item English_Text = "Save To File" ID = "32981">파일로 저장</Item>
+		<Item English_Text = "Properties	Alt + Enter" ID = "32982">속성</Item>
+		<Item English_Text = "ID" ID = "ID">ID</Item>
 	</Ditto_DeleteClipData>
-	
-	<Ditto_Options_Quick_Paste_Keyboard>
+	<Ditto_Adv_Options>
+		<Item English_Text = "Advanced Options" ID = "-1">Advanced Options</Item>
+		<Item English_Text = "Compact and Repair Database" ID = "1028">압축 및 복구</Item>
+		<Item English_Text = "On Copy Scripts" ID = "1040">On Copy Scripts</Item>
+		<Item English_Text = "On Paste Scripts" ID = "1041">On Paste Scripts</Item>
+		<Item English_Text = "Reset Clip Order" ID = "1042">Reset Clip Order</Item>
+		<Item English_Text = "OK" ID = "1">확인</Item>
+		<Item English_Text = "Cancel" ID = "2">취소</Item>
+		<Item English_Text = "&gt;" ID = "2124">&gt;</Item>
+	</Ditto_Adv_Options>
+
+	<Ditto_Adv_Properties>
+		<Item English_Text = "Amount of text to save for description" ID = "1">Amount of text to save for description</Item>
+		<Item English_Text = "Display icon in system tray" ID = "2">Display icon in system tray</Item>
+		<Item English_Text = "Save multi-pastes" ID = "3">Save multi-pastes</Item>
+		<Item English_Text = "Hide Ditto on hot key if Ditto is visible" ID = "4">Hide Ditto on hot key if Ditto is visible</Item>
+		<Item English_Text = "Paste clip in active window after selection" ID = "5">Paste clip in active window after selection</Item>
+		<Item English_Text = "Maximum clip size in bytes (0 for no limit)" ID = "6">Maximum clip size in bytes (0 for no limit)</Item>
+		<Item English_Text = "Multi-paste clip separator ([LF] = line feed)" ID = "7">Multi-paste clip separator ([LF] = line feed)</Item>
+		<Item English_Text = "Ensure Ditto is always connected to the clipboard" ID = "8">Ensure Ditto is always connected to the clipboard</Item>
+		<Item English_Text = "On copy play the sound" ID = "9">On copy play the sound</Item>
+		<Item English_Text = "Show text for first ten copy hot keys" ID = "10">Show text for first ten copy hot keys</Item>
+		<Item English_Text = "Show leading whitespace" ID = "11">Show leading whitespace</Item>
+		<Item English_Text = "Text lines per clip" ID = "12">Text lines per clip</Item>
+		<Item English_Text = "Transparency enabled" ID = "13">Transparency enabled</Item>
+		<Item English_Text = "Show thumbnails(for CF_DIB and PNG types) (could increase memory usage and display speed)" ID = "14">Show thumbnails(for CF_DIB and PNG types) (could increase memory usage and display speed)</Item>
+		<Item English_Text = "Draw RTF text in list (for RTF types) (could increase memory usage an display speed)" ID = "15">Draw RTF text in list (for RTF types) (could increase memory usage an display speed)</Item>
+		<Item English_Text = "Find as you type" ID = "16">Find as you type</Item>
+		<Item English_Text = "Ensure entire window is visible" ID = "17">Ensure entire window is visible</Item>
+		<Item English_Text = "Show clips that are in groups in main list" ID = "18">Show clips that are in groups in main list</Item>
+		<Item English_Text = "Prompt when deleting clips" ID = "19">Prompt when deleting clips</Item>
+		<Item English_Text = "Always show scroll bar" ID = "20">Always show scroll bar</Item>
+		<Item English_Text = "Elevated privileges to paste into elevated apps" ID = "21">Elevated privileges to paste into elevated apps</Item>
+		<Item English_Text = "Show in taskbar" ID = "22">Show in taskbar</Item>
+		<Item English_Text = "Show indicator a clip has been pasted" ID = "23">Show indicator a clip has been pasted</Item>
+		<Item English_Text = "Diff application path" ID = "24">Diff application path</Item>
+		<Item English_Text = "Transparency percentage" ID = "25">Transparency percentage</Item>
+		<Item English_Text = "Update clip order on paste" ID = "26">Update clip order on paste</Item>
+		<Item English_Text = "Allow duplicates" ID = "27">Allow duplicates</Item>
+		<Item English_Text = "1 Regex" ID = "28">1 Regex</Item>
+		<Item English_Text = "2 Regex" ID = "29">2 Regex</Item>
+		<Item English_Text = "3 Regex" ID = "30">3 Regex</Item>
+		<Item English_Text = "4 Regex" ID = "31">4 Regex</Item>
+		<Item English_Text = "5 Regex" ID = "32">5 Regex</Item>
+		<Item English_Text = "6 Regex" ID = "33">6 Regex</Item>
+		<Item English_Text = "7 Regex" ID = "34">7 Regex</Item>
+		<Item English_Text = "8 Regex" ID = "35">8 Regex</Item>
+		<Item English_Text = "9 Regex" ID = "36">9 Regex</Item>
+		<Item English_Text = "10 Regex" ID = "37">10 Regex</Item>
+		<Item English_Text = "11 Regex" ID = "38">11 Regex</Item>
+		<Item English_Text = "12 Regex" ID = "39">12 Regex</Item>
+		<Item English_Text = "13 Regex" ID = "40">13 Regex</Item>
+		<Item English_Text = "14 Regex" ID = "41">14 Regex</Item>
+		<Item English_Text = "15 Regex" ID = "42">15 Regex</Item>
+		<Item English_Text = "1 Process Name" ID = "43">1 Process Name</Item>
+		<Item English_Text = "2 Process Name" ID = "44">2 Process Name</Item>
+		<Item English_Text = "3 Process Name" ID = "45">3 Process Name</Item>
+		<Item English_Text = "4 Process Name" ID = "46">4 Process Name</Item>
+		<Item English_Text = "5 Process Name" ID = "47">5 Process Name</Item>
+		<Item English_Text = "6 Process Name" ID = "48">6 Process Name</Item>
+		<Item English_Text = "7 Process Name" ID = "49">7 Process Name</Item>
+		<Item English_Text = "8 Process Name" ID = "50">8 Process Name</Item>
+		<Item English_Text = "9 Process Name" ID = "51">9 Process Name</Item>
+		<Item English_Text = "10 Process Name" ID = "52">10 Process Name</Item>
+		<Item English_Text = "11 Process Name" ID = "53">11 Process Name</Item>
+		<Item English_Text = "12 Process Name" ID = "54">12 Process Name</Item>
+		<Item English_Text = "13 Process Name" ID = "55">13 Process Name</Item>
+		<Item English_Text = "14 Process Name" ID = "56">14 Process Name</Item>
+		<Item English_Text = "15 Process Name" ID = "57">15 Process Name</Item>
+		<Item English_Text = "Show startup tooltip message" ID = "58">Show startup tooltip message</Item>
+		<Item English_Text = "Tooltip display time(ms) max of 32000 (-1 default (5 seconds), 0 to turn off)" ID = "59">Tooltip display time(ms) max of 32000 (-1 default (5 seconds), 0 to turn off)</Item>
+		<Item English_Text = "Selected index" ID = "60">Selected index</Item>
+		<Item English_Text = "Save clipboard delay (ms, default: 100)" ID = "61">Save clipboard delay (ms, default: 100)</Item>
+		<Item English_Text = "Show message that we received a manual sent clip" ID = "62">Show message that we received a manual sent clip</Item>
+		<Item English_Text = "Multi-paste in reverse order" ID = "63">Multi-paste in reverse order</Item>
+		<Item English_Text = "Default paste string" ID = "64">Default paste string</Item>
+		<Item English_Text = "Default copy string" ID = "65">Default copy string</Item>
+		<Item English_Text = "Default cut string" ID = "66">Default cut string</Item>
+		<Item English_Text = "Revert to top level group on close" ID = "67">Revert to top level group on close</Item>
+		<Item English_Text = "Update clip Order on ctrl-c" ID = "68">Update clip Order on ctrl-c</Item>
+		<Item English_Text = "Tooltip maximum display lines" ID = "69">Tooltip maximum display lines</Item>
+		<Item English_Text = "Tooltip display characters" ID = "70">Tooltip display characters</Item>
+		<Item English_Text = "Activate window delay (100ms default)" ID = "71">Activate window delay (100ms default)</Item>
+		<Item English_Text = "Double shortcut keystroke timeout)" ID = "72">Double shortcut keystroke timeout)</Item>
+		<Item English_Text = "Send keys delay (ms)" ID = "73">Send keys delay (ms)</Item>
+		<Item English_Text = "First ten hot keys start index" ID = "74">First ten hot keys start index</Item>
+		<Item English_Text = "First ten hot keys font size" ID = "75">First ten hot keys font size</Item>
+		<Item English_Text = "Open to group same as active exe" ID = "76">Open to group same as active exe</Item>
+		<Item English_Text = "Add file drop when dragging clips" ID = "77">Add file drop when dragging clips</Item>
+		<Item English_Text = "Copy and save clipboard delay (ms)" ID = "78">Copy and save clipboard delay (ms)</Item>
+		<Item English_Text = "Editor default font size" ID = "79">Editor default font size</Item>
+		<Item English_Text = "Move selection on open hot key" ID = "80">Move selection on open hot key</Item>
+		<Item English_Text = "Allow back to back duplicates (if allowing duplicates)" ID = "81">Allow back to back duplicates (if allowing duplicates)</Item>
+		<Item English_Text = "Maintain search view" ID = "82">Maintain search view</Item>
+		<Item English_Text = "Network send receive port (default: 23443)" ID = "83">Network send receive port (default: 23443)</Item>
+		<Item English_Text = "Write debug to file" ID = "84">Write debug to file</Item>
+		<Item English_Text = "Write debug to OutputDebugString" ID = "85">Write debug to OutputDebugString</Item>
+		<Item English_Text = "Network server bind IP (default: *)" ID = "86">Network server bind IP (default: *)</Item>
+		<Item English_Text = "Disable friends" ID = "87">Disable friends</Item>
+		<Item English_Text = "Ignore copies faster than (ms) (default: 500)" ID = "88">Ignore copies faster than (ms) (default: 500)</Item>
+		<Item English_Text = "Refresh view after paste" ID = "89">Refresh view after paste</Item>
+		<Item English_Text = "Slugify Separator (default: -)" ID = "90">Slugify Separator (default: -)</Item>
+		<Item English_Text = "Fast thumbnails (True = fast / low quality (default). False = slow / high quality)" ID = "91">Fast thumbnails (True = fast / low quality (default). False = slow / high quality)</Item>
+		<Item English_Text = "Clipboard restore delay after copy buffer sent paste (ms, default: 750)" ID = "92">Clipboard restore delay after copy buffer sent paste (ms, default: 750)</Item>
+		<Item English_Text = "Support all types ignoring supported type list (default: false))" ID = "93">Support all types ignoring supported type list (default: false))</Item>
+		<Item English_Text = "Ignore CF_DIB when a clip is detected as text content" ID = "94">Ignore CF_DIB when a clip is detected as text content</Item>
+		<Item English_Text = "Regex case insensitive search" ID = "95">Regex case insensitive search</Item>
+		<Item English_Text = "Draw swatch for hex, RGB, and HSL colors" ID = "96">Draw swatch for hex, RGB, and HSL colors</Item>
+		<Item English_Text = "Center window below cursor or caret" ID = "97">Center window below cursor or caret</Item>
+		<Item English_Text = "Text editor path (empty for system mapping)" ID = "98">Text editor path (empty for system mapping)</Item>
+		<Item English_Text = "RTF editor path" ID = "99">RTF editor path</Item>
+		<Item English_Text = "Update description on clip edit" ID = "100">Update description on clip edit</Item>
+		<Item English_Text = "QRCode Url" ID = "101">QRCode Url</Item>
+		<Item English_Text = "Append Computer Name and IP when receiving clips" ID = "102">Append Computer Name and IP when receiving clips</Item>
+		<Item English_Text = "Diff save compare files as utf8" ID = "103">Diff save compare files as utf8</Item>
+		<Item English_Text = "Image editor path (empty for system mapping)" ID = "104">Image editor path (empty for system mapping)</Item>
+		<Item English_Text = "Clip edit save delay after load" ID = "105">Clip edit save delay after load</Item>
+		<Item English_Text = "Clip edit save delay after Save" ID = "106">Clip edit save delay after Save</Item>
+		<Item English_Text = "Web Search Url" ID = "107">Web Search Url</Item>
+		<Item English_Text = "Do not hide Ditto window on deactivate" ID = "108">Do not hide Ditto window on deactivate</Item>
+		<Item English_Text = "Hide taskbar icon when Ditto window closes" ID = "109">Hide taskbar icon when Ditto window closes</Item>
+		<Item English_Text = "Use modern scroll bar" ID = "110">Use modern scroll bar</Item>
+		<Item English_Text = "Enforce clipboard ignore formats" ID = "111">Enforce clipboard ignore formats</Item>
+	</Ditto_Adv_Properties>
+
+
+<Ditto_Options_Quick_Paste_Keyboard>
 		<Item English_Text = "Quick Paste Keyboard" ID = "-1" PropertyPage = "true">퀵 붙여넣기 키보드</Item>
 		
 		<Item English_Text = "Reset" ID = "2144">재설정</Item>
@@ -647,6 +804,23 @@
 		<Item English_Text = "Delete Clip Data" ID = "84">클립 데이터 삭제</Item>
 		<Item English_Text = "Replace Top Sticky Clip" ID = "85">상단 고정 클립 교체</Item>	
 	
+			<Item English_Text = "Paste Script" ID = "94">스크립트 붙여넣기</Item>
+		<Item English_Text = "Asci Text Only" ID = "125">ASCII 텍스트만</Item>
+		<Item English_Text = "Paste Position 1 Plain Text Only" ID = "126">위치 1 일반 텍스트만 붙여넣기</Item>
+		<Item English_Text = "Paste Position 2 Plain Text Only" ID = "127">위치 2 일반 텍스트만 붙여넣기</Item>
+		<Item English_Text = "Paste Position 3 Plain Text Only" ID = "128">위치 3 일반 텍스트만 붙여넣기</Item>
+		<Item English_Text = "Paste Position 4 Plain Text Only" ID = "129">위치 4 일반 텍스트만 붙여넣기</Item>
+		<Item English_Text = "Paste Position 5 Plain Text Only" ID = "130">위치 5 일반 텍스트만 붙여넣기</Item>
+		<Item English_Text = "Paste Position 6 Plain Text Only" ID = "131">위치 6 일반 텍스트만 붙여넣기</Item>
+		<Item English_Text = "Paste Position 7 Plain Text Only" ID = "132">위치 7 일반 텍스트만 붙여넣기</Item>
+		<Item English_Text = "Paste Position 8 Plain Text Only" ID = "133">위치 8 일반 텍스트만 붙여넣기</Item>
+		<Item English_Text = "Paste Position 9 Plain Text Only" ID = "134">위치 9 일반 텍스트만 붙여넣기</Item>
+		<Item English_Text = "Paste Position 10 Plain Text Only" ID = "135">위치 10 일반 텍스트만 붙여넣기</Item>
+		<Item English_Text = "Export To Web Search" ID = "136">웹 검색으로 내보내기</Item>
+		<Item English_Text = "Generate GUID" ID = "137">GUID 생성</Item>
+		<Item English_Text = "Paste, Posixify Paths" ID = "138">붙여넣기, Posix 경로</Item>
+		<Item English_Text = "Paste as Image" ID = "139">이미지로 붙여넣기</Item>
+		<Item English_Text = "Show Starred Clips" ID = "140">별표 클립 표시</Item>
 	</Ditto_Options_Quick_Paste_Keyboard>
 	
 </Ditto_Language_File>
