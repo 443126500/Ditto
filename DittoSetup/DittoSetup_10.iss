@@ -111,7 +111,7 @@ Source: C:\Windows\sysnative\msvcp140.dll;  DestDir: {app}; Flags: ignoreversion
 Source: C:\Windows\sysnative\mfc140u.dll;  DestDir: {app}; Flags: ignoreversion
 
 
-Source: ..\Debug\Language\*; DestDir: {app}\Language; BeforeInstall: BeforeLanguageInstall()
+Source: ..\Language\*; DestDir: {app}\Language; BeforeInstall: BeforeLanguageInstall()
 Source: ..\Debug\Themes\*; DestDir: {app}\Themes
 
 [Icons]
